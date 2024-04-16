@@ -1,0 +1,72 @@
+
+.application-container{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.application-form{
+  border-radius: 5px;
+  border: 2px solid black;
+  margin: auto;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  padding: 20px;
+  width: fit-content;
+  gap: 30px;
+}
+.Details{
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+  gap: 30px;
+  border: 2px solid gray;
+  padding: 20px;
+  border-radius: 5px;
+  align-items: center;
+}
+.skillsBox{
+  border: 2px solid gray;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+.userExperiences{
+  width: 100%;
+
+  border: 2px solid gray;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  gap: 30px;
+}
+.userEducation{
+  width: 100%;
+
+  border: 2px solid gray;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  gap: 30px;
+}
+.application-form label{
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  background-color: blanchedalmond;
+  /* height: 60px; */
+}
+
+
+.resumeBox button{
+  color: wheat;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgb(35, 70, 243);
+}

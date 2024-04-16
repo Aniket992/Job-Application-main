@@ -1,0 +1,76 @@
+.help-center{
+    display: flex;
+}
+.help-container{
+    width: 100%;
+    height: 100vh;
+    background-color:rgb(45, 44, 62);
+
+}
+.contact-form form{
+    text-align: center;
+    color: white;
+    margin: auto;
+    border-radius: 20px;
+    padding: 10px;
+    /* gap: 10px; */
+    width:400px;
+    background-color: rgb(45, 65, 82);
+    display: flex;
+    flex-direction: column;
+}
+.contact-form input{
+    background-color: #202430;
+    color: white;
+    width:300px;
+    height: 50px;
+    border-radius: 5px;
+
+}
+#message{
+    background-color: #202430;
+    color: white;
+    border-radius: 5px;
+    width: 80%;
+    min-height:150px ;
+}
+.contact-form button{
+    margin: 9px;
+    font-size: large;
+    font-weight: 600;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    background-color: rgb(0, 106, 255);
+}
+.faqs-contact-container{
+    padding: 20px;
+    align-items: center;
+    /* justify-content: space-between; */
+    background-color:rgb(45, 44, 62);
+    width:100%;
+display: flex;
+}
+.faqs{
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    border-radius: 20px;
+    width: 65%;
+    margin: auto;
+    overflow: auto;
+   max-height: 85vh;
+    text-align: center;
+    font-size: large;
+    background-color: #202430;
+    color: white;
+    padding: 10px;
+}
+.faq-feedback button{
+margin: 10px;
+width: 50px;
+border-radius: 5px;
+border: 1px solid;
+color: rgb(125, 151, 203);
+background-color: transparent;
+}

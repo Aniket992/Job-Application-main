@@ -1,0 +1,112 @@
+.Register-page{
+  display: flex;
+  justify-content: space-around;
+  background-color: #202430;
+color: #fff;
+}
+.hr{
+  margin-top: 20px;
+  width: 95%;
+  height: 1px;
+  /* color: #ccc; */
+  background-color: #a69d9d;
+}
+.Register-page img{
+  width: 50%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image within the container */
+}
+.Register-input-container{
+  /* background-color: #dce3ea; */
+  height: 100vh;
+  display: flex   ;
+  gap:5px;
+  flex-direction: column;
+  height: fit-content;
+  margin: auto;
+  width: 30%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.Register-input-container img{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  padding: 5px;
+}
+.Register-input-container input{
+  width: 90%;
+  height: 40px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+}
+.Register-input-container button{
+  width: 90%;
+  border: none;
+  height: 30px;
+  align-self: center;
+  color: #0056b3;
+  font-size: larger;
+  font-weight: 500;
+}
+.Register-input-container p{
+  display: flex;
+  gap: 20px;
+  color: #ccc;
+  font-size: larger;
+  align-self: center;
+  text-decoration: underline;
+}
+.Register-input-container select{
+  background-color: #eae7e7;
+  width:fit-content;
+  border: none;
+  height: 30px;
+  align-self: center;
+  color: #0056b3;
+  font-size: larger;
+  font-weight: 500;
+  padding: 6px;
+  margin-top: 20px;
+}
+.Register-input-container label{
+  width:90%;
+  display: flex;
+  justify-content: space-between;
+}
+.Register-Submit{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+.Register-Submit button{
+  /* margin: 10px; */
+  width: 90%;
+  height: 50px;
+  padding: 8px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+.navigator{
+  /* margin-top: 20px; */
+  /* margin-bottom: 10px; */
+}
+.navigator h5{
+  display: flex;
+  flex-direction: column;
+  color: #0056b3;
+  cursor: pointer;
+}
+.navigator p{
+  color: #ccc;
+  font-size: larger;
+  align-self: center;
+}

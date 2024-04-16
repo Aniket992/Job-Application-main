@@ -1,0 +1,32 @@
+.Dashboard-Container{
+    display: flex;
+    /* background-color: aqua; */
+}
+.values-container{
+    width: 100%;
+}
+.applied-jobs{
+    margin: 20px;
+    padding: 10px;
+    border: 1.5px solid black;
+    width:calc(100%-margin);
+    height: 500px;
+}
+.application-tracker {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .application-tracker > div {
+    text-align: center;
+    display: flex;
+  }
+  
+  .application-tracker label {
+    display: block;
+  }
+  
+  .application-tracker input {
+    margin-top: 5px;
+  }
+  

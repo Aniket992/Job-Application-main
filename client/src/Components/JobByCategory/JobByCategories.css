@@ -1,0 +1,58 @@
+.JobByCategory-container {
+  margin: 50px auto;
+}
+
+.heading-container {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  color: #000000;
+  margin: 20px;
+}
+.heading-container img {
+  background-color: white;
+  padding: 3px;
+}
+.heading-container p {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 400;
+  font-size: xx-large;
+  color: aliceblue;
+}
+.heading-container h2 {
+  color: rgb(176, 128, 234);
+}
+.category-cards {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.category-card img{
+  background-color: aliceblue;
+  color: aliceblue;
+}
+.category-card {
+  border-radius: 10px;
+  margin: auto;
+  background-color: aliceblue;
+  padding: 10px;
+  border: 1px solid gray;
+  box-shadow: 5px 5px 5px rgb(117, 0, 128);
+  width: 250px;
+  height: 200px;
+  /* Adjust other styles as needed */
+}
+.category-card:hover {
+  background-color: #4640DE;
+
+  color: aliceblue;
+  cursor: pointer;
+}

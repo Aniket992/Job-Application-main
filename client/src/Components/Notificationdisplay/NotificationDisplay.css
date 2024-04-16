@@ -1,0 +1,21 @@
+.Notification-container {
+    position: absolute; /* Change position to absolute */
+    top: 60px;
+    right: 0; /* Align it to the right */
+    margin: 10px; 
+    width: 300px;
+    height:fit-content; 
+    overflow: auto; /* Add scrollbar if content overflows */
+    z-index: 1;
+    color: rgb(251, 251, 251);
+    background-color: #147b84;
+
+    border: 2px solid gray;
+    padding: 10px;
+    font-weight: 500;
+    align-items: center;
+    text-align: center;
+    border-radius: 5%20%5%20%;
+
+  }
+  

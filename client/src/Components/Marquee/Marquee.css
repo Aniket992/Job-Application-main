@@ -1,0 +1,34 @@
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 0px 0;
+  /* background: white; */
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 15s slide infinite linear;
+}
+
+.logos-slide img {
+  background-color: white;
+  height: 150px;
+  width: 200px;
+  margin: 0 60px;
+}

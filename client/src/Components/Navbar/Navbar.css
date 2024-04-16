@@ -1,0 +1,109 @@
+/* Navbar container */
+.navbar {
+  background-color: #202430;
+  padding: 0px 20px;
+  height: 60px;
+  color: #fff;
+}
+
+.left {
+  /* background-color: #5633f3; */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+/* Logo */
+.logo {
+  cursor: pointer;
+  text-decoration: none;
+  display: flex; /* Flex layout for logo */
+  align-items: center; /* Align items vertically in the center */
+}
+.logo img {
+  width: 300px;
+  height: 60px;
+}
+
+.logo h1 {
+  color: #727ff1;
+  margin-left: 10px; /* Space between logo image and text */
+}
+
+/* Menu */
+.menu {
+  display: flex; /* Flex layout for menu items */
+  margin-left: 50px; /* Space between logo and menu */
+  font-size: 20px;
+  gap: 30px;
+}
+
+.Link {
+  color: rgb(255, 255, 255);
+
+  text-decoration: none;
+}
+.menu li {
+  list-style-type: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.Link:hover {
+  text-decoration: 3px rgb(153, 43, 216);
+  color: rgb(153, 43, 216);
+}
+
+.right {
+  /* margin: 10px; */
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.loggedIn{
+  height: 50px;
+  margin: 20px;
+}
+
+
+/* Login/Register button */
+.loggedIn button {
+  box-shadow: 2px 2px 2px gray;
+  min-width: 100px;
+  font-size: larger;
+  font-weight: 500;
+  /* margin: 20px; */
+  width: 150px;
+  height: 50px;
+  border: none;
+  /* border-radius: 50px; */
+  background-color: #5969fa;
+  color: #fff;
+  cursor: pointer;
+
+}
+
+.loggedIn button:hover {
+  background-color: #5633f3;
+}
+
+.dropdown-content {
+  margin-top: 20px;
+  background-color: #147b84;
+  /* border-radius: 10px; */
+  border-radius: 5%20%5%20%;
+
+  padding: 10px 10px;
+  text-align: center;
+  width: 150px;
+  height:fit-content;
+}
+.dropdown-content p {
+  cursor: pointer;
+  color: #ffffff;
+}
+.login-signup{
+  display: flex;
+  gap: 20px;
+}

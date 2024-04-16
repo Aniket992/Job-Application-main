@@ -1,0 +1,21 @@
+.JobPostingBanner-container {
+  background-color: #4640de;
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  color: aliceblue;
+  padding: 30px;
+  border-radius: 20px;
+}
+.JobPostingBanner-container p {
+  font-size: xx-large;
+}
+.JobPostingBanner-container button {
+  background-color: white;
+  color: #000000;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  margin: 30px;
+}
