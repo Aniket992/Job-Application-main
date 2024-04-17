@@ -128,49 +128,65 @@ export const deleteUserAccountController = async (req, res, next) => {
 
 export const removeExperienceController = async (req, res, next) => {};
 
-export const addEducationController = async (req, res, next) => {
+
+export const updateEducation = async (req, res, next) => {
+console.log(req.body);
+  const { educations } = req.body;
+
   try {
-    const { level, institute, percentage, year } = req.body;
-
     // Validate the presence of education details
-    if (!level || !institute || !percentage || !year) {
-      return next("Please provide all education details");
+    if (!educations || educations.length === 0) {
+      return res.status(400).json({ success: false, message: "Please provide education details" });
     }
+    const user = await userModel.findOne({_id: req.user.userId });
 
-    // Find the user by user ID
-    const user = await userModel.findOne({ _id: req.user.userId });
+       user.education = educations 
 
-    // If the user is not found, return an error
-    if (!user) {
-      return next("User not found");
-    }
 
-    // Add education details to the user's profile
-    user.education.push({
-      level,
-      institute,
-      percentage,
-      year,
-    });
-
-    // Save the updated user profile
     await user.save();
 
-    // Respond with success message
     res.status(200).json({
       success: true,
-      message: "Education details added successfully",
-      user: {
-        name: user.name,
-        lastName: user.lastName,
-        email: user.email,
-        education: user.education,
-      },
+      message: "Education details updated successfully",
+      user,
     });
   } catch (error) {
     // Handle errors
     console.error(error);
-    next("An error occurred while adding education details");
+    next("An error occurred while updating education details");
   }
 };
 
+//LOCATION UPDATE
+export const updateLocation = async (req, res) => {
+  const userId = req.user.id; // Assuming user ID is available in request object
+  const { location } = req.body;
+  try {
+    // Find the user by ID and update their location
+    const user = await userModel.findOneAndUpdate(
+      { _id: req.user.userId }, // Query to find the user
+      { location: location }, // Update the location field
+      { new: true } // To return the updated user document
+    );
+
+    res.status(200).json({ success: true, user: user });
+  } catch (error) {
+    console.error('Error updating user location:', error);
+    res.status(500).json({ success: false, message: 'Failed to update location' });
+  }
+};
+// //EDUCATION UPDATE
+// export const updateEducation = async (req, res) => {
+//   const userId = req.user.id; // Assuming user ID is available in request object
+//   const { educations } = req.body;
+
+//   try {
+//     // Find the user by ID and update their education details
+//     const user = await userModel.findByIdAndUpdate( { _id: req.user.userId }, { education:educations }, { new: true });
+
+//     res.status(200).json({ success: true, user });
+//   } catch (error) {
+//     console.error('Error updating education details:', error);
+//     res.status(500).json({ success: false, message: 'Failed to update education details' });
+//   }
+// };

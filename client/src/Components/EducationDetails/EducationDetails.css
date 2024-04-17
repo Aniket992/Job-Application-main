@@ -1,0 +1,21 @@
+.education-details-containers{
+    width: fit-content;
+    display:flex;
+    flex-direction: column;
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+}
+.education1-container{
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+.education2-container{
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+
+}

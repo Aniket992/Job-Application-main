@@ -1,83 +1,57 @@
-.details {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  /* background-color: aliceblue; */
-  /* width: fit-content; */
-  /* border: 2px solid black; */
-}
-
-.details-form {
-
-    width: fit-content;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.details-form button {
+.basicdetails-container{
+  /* background-color: aqua; */
+  border-radius: 5px;
+  border: 2px solid gray;
   width: fit-content;
-  height: 30px;
+  padding: 10px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: wheat;
+
+}
+.basicdetails-container input{
+  background-color: rgb(79, 67, 67);
   border: none;
-  border-radius: 10px;
+  height: 30px;
+  border-radius: 5px ;
   padding: 5px;
-  align-self: center;
+  color: white;
 }
-.details-form input {
-  padding: 10px;
-  width: 200px;
-  height: 25px;
-}
-.userbasic {
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    border: 2px solid black;
+.basicdetails-container button{
+  font-weight: 500;
+  padding: 5px;
+  border: none;
   border-radius: 5px;
-  display: flex;
-  gap: 20px;
+  background-color: rgb(41, 70, 232);
+  /* align-self: flex-end; */
+  color: rgb(235, 235, 235);
 }
-.userbasic h3 {
-  font-size: large;
-  font-weight: 400;
-}
-.education-form {
-    border: 2px solid black;
-    border-radius: 5px;
-  display: flex;
-  width: 100%;
-
-}
-.education-form h3{
-    width: 100%;
-    height: 30px;
-}
-.educationbox {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 20px;
-  padding: 10px;
-  width: 100%;
-}
-.experience-form {
-  /* background-color: bisque; */
-  display: flex;
-  border: 2px solid black;
-  border-radius: 5px;
-  width: 100%;
+.basicdetails-container select{
+  background-color: rgb(79, 67, 67);
+  border: none;
+  height: 30px;
+  border-radius: 5px ;
+  padding: 5px;
+  color: white;
 }
 
-.experiencebox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+.basic-details-container {
   padding: 10px;
-  justify-content: space-evenly;
-width: 100%;
+  border: 2px solid gray;
+  border-radius: 5px;
+  display:flex;
+  gap: 20px;
+justify-content: space-evenly;
+}
+/* .basic-details-container p{
+  color: wheat;
+
+} */
+
+.location-update{
+  gap: 20px;
+  display: flex;
+  /* background-color: blue; */
 }

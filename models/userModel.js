@@ -32,13 +32,8 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "India",
     },
-    education: [
-      {
-      level: { type: String },
-      institute: { type: String },
-      percentage: { type: Number },
-      year: { type: Number },
-    }
+    education: [{}
+    
     ],
 
     experience: [

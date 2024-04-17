@@ -5,5 +5,37 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    background-color: #202430;
+
+    /* gap: 20px; */
 }
+
+.settings-options{
+background-color: rgb(53, 68, 68);
+align-items: center;
+/* justify-content: center; */
+display: flex;
+}
+.settings-options ul{
+    align-items: center;
+    height: 100%;
+    align-self: flex-start;
+/* margin: auto; */
+    gap: 30px;
+    display: flex;
+    /* background-color: blueviolet; */
+}
+.settings-options li{
+    padding: 5px;
+    font-weight: 500;
+    font-size: large;
+    cursor: pointer;
+    list-style-type: none;
+    color: white;
+
+}
+.settings-options li.active {
+    border-radius: 5px;
+    color: rgb(0, 0, 0); /* Change color for active link */
+    background-color: rgb(245, 245, 246); /* Add background color for active link */
+  }
