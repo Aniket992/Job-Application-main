@@ -1,13 +1,15 @@
 import axios from "axios";
 import "./EducationDetails.css";
 import { UserContext } from "../../MyContext";
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
+import { ToastContainer, Zoom, toast } from "react-toastify";
 
 const EducationDetails = () => {
   const { user, setUser } = useContext(UserContext);
 
+  // Initialize education states with empty objects if user education is empty
   const [education1, setEducation1] = useState(
-    user.user.education
+    user.user.education && user.user.education.length > 0
       ? user.user.education[0]
       : {
           level: "",
@@ -16,8 +18,9 @@ const EducationDetails = () => {
           year: "",
         }
   );
+
   const [education2, setEducation2] = useState(
-    user.user.education
+    user.user.education && user.user.education.length > 1
       ? user.user.education[1]
       : {
           level: "",
@@ -26,11 +29,14 @@ const EducationDetails = () => {
           year: "",
         }
   );
+
   const handleInputChange = (e, education, setEducation) => {
     const { name, value } = e.target;
     setEducation({ ...education, [name]: value });
   };
-
+  const notify = () => {
+    toast.success("Education Updated");
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -50,20 +56,24 @@ const EducationDetails = () => {
         ...user,
         user: { ...user.user, education: [education1, education2] },
       });
+      // notify();
+      toast.success("Education Updated");
+
 
       console.log("Education details submitted:", response.data);
     } catch (error) {
+      toast.error("Error submitting education details");
+
       console.error("Error submitting education details:", error);
-      // Optionally, you can handle errors (e.g., show an error message)
     }
   };
 
   return (
-    <div >
+    <div>
       <form className="education-details-containers" onSubmit={handleSubmit}>
-
+        {/* Education 1 */}
         <div className="education1-container">
-            <p>education 1</p>
+          <p>Education 1</p>
           <div className="form-group-container">
             <label>Level:</label>
             <select
@@ -111,8 +121,9 @@ const EducationDetails = () => {
           </div>
         </div>
 
+        {/* Education 2 */}
         <div className="education2-container">
-        <p>education 1</p>
+          <p>Education 2</p>
           <div className="form-group-container">
             <label>Level:</label>
             <select

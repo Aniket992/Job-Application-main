@@ -4,10 +4,11 @@ import bcrypt from "bcryptjs";
 import JWT from "jsonwebtoken";
 //schema
 const userSchema = new mongoose.Schema(
-  {userType:{
-    type:String,
-    required:[true,"userType is require"]
-  },
+  {
+    userType: {
+      type: String,
+      required: [true, "userType is require"],
+    },
     name: {
       type: String,
       required: [true, "Name Is Require"],
@@ -32,22 +33,34 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "India",
     },
-    education: [{}
-    
-    ],
-
+    education: [ {
+      level: { type: String, default: "" },
+      institute: { type: String, default: "" },
+      percentage: { type: String, default: "" },
+      year: { type: String, default: "" }
+    }],
     experience: [
       {
-        position: { type: String },
-        company: { type: String },
-        duration:{type:Number},
-        year: { type: Number },
-      },
-     
+        position: {
+          type: String,
+          required: [true, "Position is required"],
+        },
+        company: {
+          type: String,
+          required: [true, "Company is required"],
+        },
+        duration: {
+          type: String,
+          required: [true, "Duration is required"],
+        },
+        startingYear: {
+          type: String,
+          required: [true, "Starting year is required"],
+        },
+      }
     ],
-    skills:[
-        {type:String}
-    ],
+    
+    skills: [{ type: String }],
     resume: {
       data: Buffer, // Binary data of the PDF file
       contentType: String, // MIME type of the file (e.g., application/pdf)
@@ -61,10 +74,10 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    isProfileComplete:{
-      type:Boolean,
+    isProfileComplete: {
+      type: Boolean,
       default: false,
-    }
+    },
   },
 
   { timestamps: true }

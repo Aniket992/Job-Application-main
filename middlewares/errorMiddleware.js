@@ -8,7 +8,7 @@ const errorMiddleware = (err, req, res, next) => {
   };
 
   // Handle specific error cases
-  if (err.message === "Please Provide All Fields") {
+  if (err.message === "Please Provide  Fields") {
     defaultError.statusCode = 400;
     defaultError.message = "Email and password are required fields";
   } 

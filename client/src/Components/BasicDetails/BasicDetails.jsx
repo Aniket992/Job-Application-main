@@ -4,6 +4,8 @@ import React, { useContext, useState,useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, Zoom, toast } from "react-toastify";
 import EducationDetails from "../EducationDetails/EducationDetails";
+import ExperienceDetails from "../ExperienceDetails/ExperienceDetails";
+import Skills from "../Skills/Skills";
 
 const BasicDetails = () => {
   const { user, setUser } = useContext(UserContext);
@@ -13,10 +15,12 @@ const BasicDetails = () => {
     setNewLocation(e.target.value);
   };
 
-  const notify = () => {
-    toast.success("Location Updated");
-  };
+
   const updateLocation = async () => {
+    if(!newLocation){
+      toast.error("please provide location");
+      return;
+    }
     try {
       const token = user.token;
       const headers = {
@@ -30,10 +34,11 @@ const BasicDetails = () => {
       );
 
       setUser({ ...user, user: { ...user.user, location: newLocation } });
-      notify();
+      toast.success("Location Updated");
       console.log("Location updated:", response.data);
     } catch (error) {
       console.error("Error updating location:", error);
+      toast.error("Error updating location");
     }
   };
 
@@ -56,8 +61,10 @@ const BasicDetails = () => {
         </div>
       </div>
       <EducationDetails/>
+      <ExperienceDetails/>
+      <Skills/>
       <ToastContainer
-        position="top-center"
+        position="top-right"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}

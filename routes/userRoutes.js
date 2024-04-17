@@ -1,12 +1,13 @@
 import express from "express";
 import userAuth from "../middlewares/authMiddleware.js";
 import {
-    // addEducationController,
   addExperienceController,
   addSkillsController,
   deleteUserAccountController,
   updateEducation,
+  updateExperience,
   updateLocation,
+  updateSkill,
   updateUserController,
 } from "../controllers/userController.js";
 
@@ -35,12 +36,15 @@ router.delete("/delete-experience", userAuth);
 router.delete("/delete-user", userAuth, deleteUserAccountController);
 // ..........................
 
+//...........................
 // UPDATE LOCATION
 router.put('/update-location', userAuth, updateLocation);
-
 // UPDATE EDUCATION 
 router.put('/update-education',userAuth, updateEducation);
-
+// UPDATE EXPERIENCE
+router.put('/update-experience',userAuth, updateExperience);
+// UPDATE SKILLS 
+router.put('/update-skill',userAuth, updateSkill);
 
 
 export default router;
