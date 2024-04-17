@@ -1,16 +1,14 @@
 .education-details-containers{
-    /* background-color: antiquewhite; */
-    margin: auto;
     width: 100%;
     display:flex;
     flex-direction: column;
+    gap: 5px;
     border: 2px solid gray;
     border-radius: 5px;
     padding: 10px;
 }
 .education1-container ,.education2-container{
-    padding: 10px;
     display: flex;
-    gap: 20px;
-    justify-content: space-evenly;
+    gap: 25px;
 }
+

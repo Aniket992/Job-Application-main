@@ -6,8 +6,6 @@
     display: flex;
     flex-direction: column;
     background-color: #202430;
-
-    /* gap: 20px; */
 }
 
 .settings-options{

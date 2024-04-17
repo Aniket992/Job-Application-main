@@ -71,11 +71,12 @@ const EducationDetails = () => {
   return (
     <div>
       <form className="education-details-containers" onSubmit={handleSubmit}>
-        {/* Education 1 */}
+     <h5>education (last two)</h5>
         <div className="education1-container">
-          <p>Education 1</p>
+        
           <div className="form-group-container">
-            <label>Level:</label>
+
+          <label>Level:</label>
             <select
               name="level"
               value={education1.level}
@@ -90,7 +91,7 @@ const EducationDetails = () => {
             </select>
           </div>
           <div className="form-group-container">
-            <label>Institute Name:</label>
+          <label>Institute Name:</label>
             <input
               type="text"
               name="institute"
@@ -100,7 +101,8 @@ const EducationDetails = () => {
             />
           </div>
           <div className="form-group-container">
-            <label>Percentage:</label>
+          <label>Percentage:</label>
+
             <input
               type="text"
               name="percentage"
@@ -110,7 +112,8 @@ const EducationDetails = () => {
             />
           </div>
           <div className="form-group-container">
-            <label>Year:</label>
+          <label>Year:</label>
+
             <input
               type="text"
               name="year"
@@ -121,11 +124,8 @@ const EducationDetails = () => {
           </div>
         </div>
 
-        {/* Education 2 */}
         <div className="education2-container">
-          <p>Education 2</p>
           <div className="form-group-container">
-            <label>Level:</label>
             <select
               name="level"
               value={education2.level}
@@ -140,7 +140,6 @@ const EducationDetails = () => {
             </select>
           </div>
           <div className="form-group-container">
-            <label>Institute Name:</label>
             <input
               type="text"
               name="institute"
@@ -150,7 +149,6 @@ const EducationDetails = () => {
             />
           </div>
           <div className="form-group-container">
-            <label>Percentage:</label>
             <input
               type="text"
               name="percentage"
@@ -160,7 +158,6 @@ const EducationDetails = () => {
             />
           </div>
           <div className="form-group-container">
-            <label>Year:</label>
             <input
               type="text"
               name="year"

@@ -65,9 +65,10 @@ const ExperienceDetails = () => {
   return (
     <div>
       <form className="experience-details-containers" onSubmit={handleSubmit}>
-        {/* Experience 1 */}
+      <h5>experience (last two)</h5>
+
         <div className="experience1-container">
-          <p>Experience 1</p>
+          {/* <p>Experience 1</p> */}
           <div className="form-group-container">
             <label>Position:</label>
             <input
@@ -112,9 +113,9 @@ const ExperienceDetails = () => {
 
         {/* Experience 2 */}
         <div className="experience2-container">
-          <p>Experience 2</p>
+          {/* <p>Experience 2</p> */}
           <div className="form-group-container">
-            <label>Position:</label>
+            {/* <label>Position:</label> */}
             <input
               type="text"
               name="position"
@@ -124,7 +125,7 @@ const ExperienceDetails = () => {
             />
           </div>
           <div className="form-group-container">
-            <label>Company Name:</label>
+            {/* <label>Company Name:</label> */}
             <input
               type="text"
               name="company"
@@ -134,7 +135,7 @@ const ExperienceDetails = () => {
             />
           </div>
           <div className="form-group-container">
-            <label>Duration:</label>
+            {/* <label>Duration:</label> */}
             <input
               type="text"
               name="duration"
@@ -144,7 +145,7 @@ const ExperienceDetails = () => {
             />
           </div>
           <div className="form-group-container">
-            <label>Starting Year:</label>
+            {/* <label>Starting Year:</label> */}
             <input
               type="text"
               name="startingYear"

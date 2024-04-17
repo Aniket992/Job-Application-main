@@ -1,0 +1,13 @@
+.skills-update{
+    gap: 20px;
+    display: flex;
+}
+.skills-container{
+    width: fit-content;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid gray;
+    padding: 10px;
+    border-radius: 5px;
+}

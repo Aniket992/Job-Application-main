@@ -33,7 +33,6 @@ const Skills = () => {
         { headers: headers }
       );
 
-      // Update user's skills in the local state
       setUser({
         ...user,
         user: { ...user.user, skills: [...user.user.skills, newSkill] },
@@ -48,10 +47,10 @@ const Skills = () => {
   };
 
   return (
-    <div>
-      <div className="basic-details-container">
+      <div className="skills-container">
+                  <p>Skills: {user.user.skills.join(", ")}</p>
+
         <div className="skills-update">
-          <p>Skills: {user.user.skills.join(", ")}</p>
           <input
             type="text"
             placeholder="New Skill"
@@ -60,7 +59,6 @@ const Skills = () => {
           />
           <button onClick={updateSkills}>Add Skill</button>
         </div>
-      </div>
     </div>
   );
 };

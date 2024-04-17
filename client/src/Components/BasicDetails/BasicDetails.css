@@ -1,16 +1,12 @@
 .basicdetails-container{
-  /* background-color: aqua; */
   border-radius: 5px;
   border: 2px solid gray;
   width: fit-content;
   padding: 10px;
-  /* margin: auto; */
   display: flex;
   flex-direction: column;
   gap: 10px;
   color: wheat;
-justify-content: center;
-align-items: center;
 }
 .basicdetails-container input{
   width: 170px;
@@ -27,7 +23,7 @@ align-items: center;
   border: none;
   border-radius: 5px;
   background-color: rgb(41, 70, 232);
-  /* align-self: flex-end; */
+  align-self: flex-end;
   color: rgb(235, 235, 235);
 }
 .basicdetails-container select{
@@ -49,13 +45,9 @@ align-items: center;
   gap: 20px;
 justify-content: space-evenly;
 }
-/* .basic-details-container p{
-  color: wheat;
 
-} */
 
 .location-update{
   gap: 20px;
   display: flex;
-  /* background-color: blue; */
 }
