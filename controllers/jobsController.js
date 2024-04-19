@@ -1,6 +1,7 @@
 import jobsModel from "../models/jobsModel.js";
 import mongoose from "mongoose";
 import moment from "moment";
+import userModel from "../models/userModel.js";
 // ====== CREATE JOB ======
 export const createJobController = async (req, res, next) => {
   const { company, position } = req.body;
@@ -14,25 +15,9 @@ export const createJobController = async (req, res, next) => {
 
 export const getAllJobsController = async (req, res, next) => {
   const { location, workType, company, position, sort,salary,jobLevel } = req.query;
-  // condiions for searching filters
+  
   const queryObject = {};
 
-  //logic filters
-  // if (location && location !== "all") {
-  //   queryObject.workLocation = location;
-  // }
-  // if (jobLevel && jobLevel !== "all") {
-  //   queryObject.jobLevel = jobLevel;
-  // }
-  // if (salary && salary !== "all") {
-  //   queryObject.salary = salary;
-  // }
-  // if (company && company !== "all") {
-  //   queryObject.company = company;
-  // }
-  // if (workType && workType !== "all") {
-  //   queryObject.workType = workType;
-  // }
   if (position) {
     queryObject.position = { $regex: position, $options: "i" };
   }
@@ -85,6 +70,8 @@ export const getAllJobsController = async (req, res, next) => {
 };
 
 // ======= UPDATE JOBS ===========
+
+
 export const updateJobController = async (req, res, next) => {
   const { id } = req.params;
   const { company, position } = req.body;
@@ -221,4 +208,18 @@ export const jobStatsController = async (req, res, next) => {
     .json({ totalJob: stats.length, defaultStats, montlyApplications });
 };
 
-//sorting
+//COMPANIES CONTROLLERS
+
+export const browseCompanies = async (req, res) => {
+  try {
+    const companies = await userModel.find({ userType: 'jobProvider' });
+    if(companies==null){
+      console.log("no jobs found");
+    }
+    res.status(200).json({ success: true, companies });
+  } catch (error) {
+    console.error('Error fetching companies:', error);
+    res.status(500).json({ success: false, error: 'Internal Server Error' });
+  }
+};
+

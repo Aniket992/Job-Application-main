@@ -9,11 +9,11 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [successMessage, setSuccessMessage] = useState(null);
-
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { setUser } = useContext(UserContext); // Destructure setUser from context
   const navigate = useNavigate();
+
   const handleRegister = () => {
     navigate("/Register");
   };
@@ -24,6 +24,12 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Check if email and password are provided
+    if (!email || !password) {
+      setErrorMessage("Please provide both email and password.");
+      return;
+    }
 
     try {
       const response = await fetch("http://localhost:8080/api/v1/auth/login", {
@@ -47,8 +53,7 @@ const Login = () => {
       localStorage.setItem("user", JSON.stringify(userData));
 
       navigate("/");
-    } 
-    catch (error) {
+    } catch (error) {
       // Handle errors
       console.log("Error:", error); // Log the error object
 

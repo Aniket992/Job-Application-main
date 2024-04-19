@@ -1,32 +1,64 @@
 .Dashboard-Container{
     display: flex;
-    /* background-color: aqua; */
+   
 }
 .values-container{
     width: 100%;
+    background-color: #202430;
+    color: wheat;
 }
 .applied-jobs{
+  overflow: hidden;
+  scrollbar-width: none;
     margin: 20px;
     padding: 10px;
-    border: 1.5px solid black;
-    width:calc(100%-margin);
-    height: 500px;
-}
-.application-tracker {
+    border: 1.5px solid rgb(138, 128, 128);
+    height: 80%;
     display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .application-tracker > div {
+    flex-direction: column;
     text-align: center;
-    display: flex;
-  }
+}
+.application-tracker{
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.application {
+  border-radius: 5px;
+  border: 2px solid gray;
+  display: flex;
+  width: 90%;
+  margin:auto;
+  padding: 10px;
+  justify-content:space-between;
   
-  .application-tracker label {
-    display: block;
-  }
-  
-  .application-tracker input {
-    margin-top: 5px;
-  }
+}
+.application button{
+  font-weight: 500;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(41, 70, 232);
+  align-self: flex-end;
+  color: rgb(235, 235, 235);
+}
+ .application-element{
+  display: flex;
+  width: 30%;
+  text-align: center;
+  align-items: center;
+  /* background-color: aqua; */
+ }
+.application-label{
+ font-size: large;
+ font-weight: 500;
+  display: flex;
+  width: 90%;
+  margin:auto;
+  padding: 10px;
+  justify-content:space-between;
+}
   

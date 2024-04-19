@@ -45,9 +45,9 @@ const FindJobs = () => {
     navigate("/");
   };
 
-  const handleApply = () => {
+  const handleApply = (jobId) => {
     user
-      ? navigate("/Application")
+    ? navigate("/Application", { state: { jobId } })
       : window.confirm("Please login to apply") && navigate("/Login");
   };
 
@@ -216,7 +216,7 @@ const FindJobs = () => {
                     <p>Work Type: {job.workType}</p>
                   </div>
                   <div className="apply">
-                    <button onClick={handleApply}> Apply</button>
+                  <button onClick={() => handleApply(job._id)}>Apply</button>
                     <div className="job-description">
                       <button onClick={() => handleDetailsClick(job)}>
                         Details

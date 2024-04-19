@@ -1,18 +1,15 @@
 .jobs-page-body {
     background-color:#202430;
   display: flex;
-  color: beige;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  /* background-color: aqua; */
+  color: wheat;
 }
 .page-header{
-    background-color: #202430;
-    
+  background-color:#202430;
+
 }
 .jobs-body{
     display: flex;
     flex-direction: column;
-    /* background-color: aqua; */
     width: 100%;
 }
 .job-searchbar{
@@ -26,13 +23,13 @@ padding: 10px;
 align-items: center;
 }
 .job-searchbar input{
-    background-color: #828289;
+  text-align: center;
+  color: white;
+    background-color: #515160;
     padding: 10px;
     font-size: larger;
-    box-shadow: 2px 2px 2px 2px rgb(190, 189, 189);
     height: 50px;
     border: none;
-    text-decoration: 1px solid grey underline;
     width: 35%;
     margin: 20px;
 }

@@ -3,11 +3,13 @@
   display: flex;
   width: 100%;
   height: 100vh;
+  background-color: #202430;
+color: wheat;
 }
 
 .application-form{
   border-radius: 5px;
-  border: 2px solid black;
+  border: 2px solid gray;
   margin: auto;
   /* background-color: aqua; */
   display: flex;

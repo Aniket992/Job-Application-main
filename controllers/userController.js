@@ -1,79 +1,79 @@
 import userModel from "../models/userModel.js";
 import multer from "multer";
 
-export const updateUserController = async (req, res, next) => {
-  const { location, education, experience, skills } = req.body;
+// export const updateUserController = async (req, res, next) => {
+//   const { location, education, experience, skills } = req.body;
 
-  // Check if required fields are provided
-  if (!location || !skills || !experience || !education) {
-    return res
-      .status(400)
-      .json({ error: "Please provide all required fields" });
-  }
+//   // Check if required fields are provided
+//   if (!location || !skills || !experience || !education) {
+//     return res
+//       .status(400)
+//       .json({ error: "Please provide all required fields" });
+//   }
 
-  try {
-    // Find the user by user ID
-    const user = await userModel.findOne({ _id: req.user.userId });
+//   try {
+//     // Find the user by user ID
+//     const user = await userModel.findOne({ _id: req.user.userId });
 
-    // Update user details
-    user.location = location;
+//     // Update user details
+//     user.location = location;
 
-    // Add education details
-    if (education && education.length > 0) {
-      education.forEach((edu) => {
-        user.education.push({
-          level: edu.level,
-          institute: edu.institute,
-          percentage: edu.percentage,
-          year: edu.year,
-        });
-      });
-    }
+//     // Add education details
+//     if (education && education.length > 0) {
+//       education.forEach((edu) => {
+//         user.education.push({
+//           level: edu.level,
+//           institute: edu.institute,
+//           percentage: edu.percentage,
+//           year: edu.year,
+//         });
+//       });
+//     }
 
-    // Add experience details
-    if (experience && experience.length > 0) {
-      experience.forEach((exp) => {
-        user.experience.push({
-          company: exp.company,
-          position: exp.position,
-          duration: exp.duration,
-          year: exp.year,
-        });
-      });
-    }
+//     // Add experience details
+//     if (experience && experience.length > 0) {
+//       experience.forEach((exp) => {
+//         user.experience.push({
+//           company: exp.company,
+//           position: exp.position,
+//           duration: exp.duration,
+//           year: exp.year,
+//         });
+//       });
+//     }
 
-    // Add skills
-    if (skills) {
-      user.skills.push(skills);
-    }
-    const allDetailsAvailable =
-      location &&
-      education &&
-      education.length > 0 &&
-      experience &&
-      experience.length > 0 &&
-      skills;
+//     // Add skills
+//     if (skills) {
+//       user.skills.push(skills);
+//     }
+//     const allDetailsAvailable =
+//       location &&
+//       education &&
+//       education.length > 0 &&
+//       experience &&
+//       experience.length > 0 &&
+//       skills;
 
-    if (allDetailsAvailable) {
-      user.isProfileComplete = true;
-    }
-    // Save the updated user
-    await user.save();
+//     if (allDetailsAvailable) {
+//       user.isProfileComplete = true;
+//     }
+//     // Save the updated user
+//     await user.save();
 
-    // Create a new JWT token
-    const token = user.createJWT();
+//     // Create a new JWT token
+//     const token = user.createJWT();
 
-    // Respond with updated user and token
-    res.status(200).json({
-      user,
-      token,
-    });
-  } catch (error) {
-    // Handle any errors
-    console.error("Error updating user details:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-};
+//     // Respond with updated user and token
+//     res.status(200).json({
+//       user,
+//       token,
+//     });
+//   } catch (error) {
+//     // Handle any errors
+//     console.error("Error updating user details:", error);
+//     res.status(500).json({ error: "Internal server error" });
+//   }
+// };
 
 export const addExperienceController = async (req, res, next) => {
   const { company, position, duration, year } = req.body;
@@ -225,12 +225,57 @@ export const updateSkill = async (req, res, next) => {
       { _id: req.user.userId },
       { $push: { skills: skill } },
       { new: true }
-
     );
 
     res.status(200).json({ success: true, user: user });
   } catch (error) {
     console.error("Error updating user skills:", error);
     next("Error updating user skills");
+  }
+};
+//Update PASSWORD
+export const changePassword = async (req, res) => {
+  try {
+    const { newPassword } = req.body;
+    const userId = req.user.id;
+
+    const user = await userModel.findOne( {_id:req.user.userId});
+    if (!user) {
+      return res.status(404).json({ message: "Invalid email or password" });
+    };
+      user.password = newPassword ,
+      {new: true }
+    
+    await user.save(); 
+
+    return res.status(200).json({ message: "Password changed successfully", user });
+  } catch (error) {
+    console.error("Error changing password:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+//UPDATE EMAIL
+export const changeEmail = async (req, res) => {
+  try {
+    const { newEmail } = req.body;
+    const userId = req.user.id;
+
+    const existingUser = await userModel.findOne({ email: newEmail });
+    if (existingUser) {
+      return res.status(400).json({ message: "Email is already registered with another user" });
+    }
+
+    const user = await userModel.findOne({ _id: req.user.userId });
+    if (!user) {
+      return res.status(404).json({ message: "User not Found" });
+    }
+
+    user.email = newEmail;
+    await user.save();
+
+    return res.status(200).json({ message: "Email changed successfully", user });
+  } catch (error) {
+    console.error("Error changing Email:", error);
+    return res.status(500).json({ message: "Internal server error" });
   }
 };

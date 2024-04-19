@@ -5,4 +5,45 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    background-color: #202430;
+
 }
+    .browse-companies-container{
+        color: wheat;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .company-list{
+        scrollbar-width: none;
+        border-radius: 5px ;
+        overflow: auto;
+        height: 90%;
+         border: 2px solid gray;
+         padding: 10px;
+         margin: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        gap: 10px;
+    }
+   .company-card{
+    background-color: #3b3f4b;
+    border: 2px solid wheat;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+   }
+   .company-info{
+    width: 100%;
+
+   }
+   .company-description{
+    width: 90%;
+    /* background-color: aliceblue; */
+    height: 90%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid gray;
+    margin: 10px;
+   }

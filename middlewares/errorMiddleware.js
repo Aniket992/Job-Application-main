@@ -4,10 +4,14 @@ const errorMiddleware = (err, req, res, next) => {
   // Default error object
   const defaultError = {
     statusCode: 500,
-    message: "email already registered please login",
+    message: "account not found",
   };
 
   // Handle specific error cases
+  if (err.message === "email already registered please login") {
+    defaultError.statusCode = 500;
+    defaultError.message = "Email and password are required fields";
+  } 
   if (err.message === "Please Provide  Fields") {
     defaultError.statusCode = 400;
     defaultError.message = "Email and password are required fields";

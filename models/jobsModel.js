@@ -48,10 +48,7 @@ const jobSchema = new mongoose.Schema(
       ref: "User",
     },
 
-    // rating: {
-    //   type: Number,
-    //   default: "null",
-    // },
+   
   },
   { timestamps: true }
 );

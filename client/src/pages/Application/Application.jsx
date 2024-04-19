@@ -3,43 +3,51 @@ import axios from "axios";
 import { UserContext } from "../../MyContext";
 import "./Application.css";
 import SideBar from "../../Components/SideBar/SideBar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
+
 const Application = () => {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const [resume, setResume] = useState(null);
+  const location = useLocation(); 
 
   const handleResumeUpload = (e) => {
     setResume(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
-    if(resume==null){
-      alert("please upload resume");
+    e.preventDefault();
+    if (!resume) {
+      alert("Please upload your resume.");
       return;
     }
-    e.preventDefault();
+
+    const jobId = location.state.jobId; 
+
     try {
-      const formDataToSend = new FormData();
-      formDataToSend.append("resume", resume);
-      formDataToSend.append("name", user.user.name);
-      formDataToSend.append("lastName", user.user.lastName);
-      formDataToSend.append("email", user.user.email);
-      formDataToSend.append("contact", user.user.contact);
-      formDataToSend.append("experience", JSON.stringify(user.user.experience));
-      formDataToSend.append("skills", user.user.skills);
-      formDataToSend.append("education", JSON.stringify(user.user.education));
+      const formData = new FormData();
+      formData.append("name", user.user.name);
+      formData.append("lastName", user.user.lastName);
+      formData.append("email", user.user.email);
+      formData.append("skills", user.user.skills);
+      formData.append("education", JSON.stringify(user.user.education));
+      formData.append("experience", JSON.stringify(user.user.experience));
+      formData.append("resume", resume);
+      formData.append("jobId", jobId); 
+
+      const token = user.token;
+      const headers = {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+      };
 
       const response = await axios.post(
         "http://localhost:8080/api/v1/application/upload",
-        formDataToSend,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+        formData,
+        { headers: headers }
       );
-      alert("application submitted successfully")
+
+      alert("Application submitted successfully");
       console.log("Application submitted successfully:", response.data);
       navigate("/FindJobs");
     } catch (error) {
@@ -49,17 +57,16 @@ const Application = () => {
 
   return (
     <div className="application-container">
-      <SideBar/>
+      <SideBar />
       <form
         onSubmit={handleSubmit}
         encType="multipart/form-data"
         className="application-form"
       >
         <div className="Details">
-        <p>Name: {user.user.name}</p>
-        <p>Last Name: {user.user.lastName}</p>
-        <p>Email: {user.user.email}</p>
-        <p>Contact: {user.user.contact}</p>
+          <p>Name: {user.user.name}</p>
+          <p>Last Name: {user.user.lastName}</p>
+          <p>Email: {user.user.email}</p>
         </div>
         <div className="userExperiences">
           <h3>Experiences:</h3>
@@ -73,12 +80,12 @@ const Application = () => {
           ))}
         </div>
         <div className="skillsBox">
-        <h3>Skills:</h3>
-        <p> {user.user.skills}</p>
+          <h3>Skills:</h3>
+          <p> {user.user.skills}</p>
         </div>
 
         <div className="userEducation">
-        <h3>Qualifications:</h3>
+          <h3>Qualifications:</h3>
           {user.user.education.map((edu, index) => (
             <div key={index}>
               <p> LEVEL:{edu.level}</p>
@@ -96,8 +103,7 @@ const Application = () => {
             name="resume"
             onChange={handleResumeUpload}
           />
-                  <button type="submit">Submit Application</button>
-
+          <button type="submit">Submit Application</button>
         </div>
       </form>
     </div>
