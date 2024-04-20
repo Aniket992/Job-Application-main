@@ -1,0 +1,22 @@
+.resume-resumeBox{
+    /* background-color: aqua; */
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+.resume-resumeBox form{
+    border: none;
+    /* background-color: blueviolet; */
+    padding: 8px;
+
+}
+.resumeBox{
+    display: flex;
+    /* background-color: aqua; */
+    gap: 20px;
+}
+.resumeBox input{
+    width: 200px;
+
+}

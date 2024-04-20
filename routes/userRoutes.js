@@ -1,13 +1,17 @@
 import express from "express";
 import userAuth from "../middlewares/authMiddleware.js";
+import upload from "../config/multer.js";
+
 import {
   changeEmail,
   changePassword,
   deleteUserAccountController,
+  getUserResumeController,
   updateEducation,
   updateExperience,
   updateLocation,
   updateSkill,
+  uploadResume,
 } from "../controllers/userController.js";
 
 // router object
@@ -28,5 +32,10 @@ router.put('/update-skill',userAuth, updateSkill);
 router.put('/change-password',userAuth, changePassword);
 //UPDATE EMAIL
 router.put('/change-email',userAuth, changeEmail);
+//UPLOAD RESUME
+router.post('/upload-resume',userAuth,upload.single('resume'),uploadResume);
+
+//GET RESUME
+router.get('/get-resume',userAuth,getUserResumeController);
 
 export default router;

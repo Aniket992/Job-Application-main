@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import NotificationDisplay from '../../Components/Notificationdisplay/NotificationDisplay';
 import "./Setting.css";
 import { UserContext } from "../../MyContext";
+import ShowResume from '../../Components/ShowResume/ShowResume';
 
 const Setting = () => {
   const { user } = useContext(UserContext);
@@ -76,6 +77,7 @@ const Setting = () => {
           {renderSelectedOption()}
         </div>
       </div>
+
     </div>
   );
 };

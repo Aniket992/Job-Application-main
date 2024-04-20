@@ -7,6 +7,7 @@
   flex-direction: column;
   gap: 10px;
   color: wheat;
+  height: 100%;
 }
 .basicdetails-container input{
   width: 170px;
@@ -50,4 +51,13 @@ justify-content: space-evenly;
 .location-update{
   gap: 20px;
   display: flex;
+}
+.main-profile-container{
+  margin: 10px;
+display: flex;
+height: 90%;
+}
+.skill-resume-container{
+  display: flex;
+  justify-content: space-between;
 }

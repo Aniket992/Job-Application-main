@@ -33,21 +33,7 @@ export const uploadApplicationController = async (req, res, next) => {
 };
 
 
-// export const getApplicationController = async (req, res, next) => {
-//   try {
-//     const userId = req.user.userId;
-//     console.log(userId);
-//     const applications = await ApplicationModel.find({ userId });
 
-//     if (!applications || applications.length === 0) {
-//       return next("No applications found for this user");
-//     }
-//     res.status(200).json(applications);
-//   } catch (error) {
-//     console.error("Error getting applications:", error);
-//     res.status(500).json({ message: "Server error" });
-//   }
-// };
 
 export const getApplicationController = async (req, res, next) => {
   try {

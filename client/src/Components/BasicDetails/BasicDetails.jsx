@@ -6,6 +6,8 @@ import { ToastContainer, Zoom, toast } from "react-toastify";
 import EducationDetails from "../EducationDetails/EducationDetails";
 import ExperienceDetails from "../ExperienceDetails/ExperienceDetails";
 import Skills from "../Skills/Skills";
+import ShowResume from "../ShowResume/ShowResume";
+import UploadResume from "../UploadResume/UploadResume";
 
 const BasicDetails = () => {
   const { user, setUser } = useContext(UserContext);
@@ -44,6 +46,8 @@ const BasicDetails = () => {
 
 
   return (
+    <div className="main-profile-container">
+
     <div className="basicdetails-container">
       <div className="basic-details-container">
         <p>{user.user.name}</p>
@@ -62,7 +66,11 @@ const BasicDetails = () => {
       </div>
       <EducationDetails/>
       <ExperienceDetails/>
+      <div className="skill-resume-container">
       <Skills/>
+      <UploadResume/>
+      </div>
+    
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -77,6 +85,9 @@ const BasicDetails = () => {
         transition={Zoom}
       />
     </div>
+    <ShowResume/>
+    </div>
+
   );
 };
 

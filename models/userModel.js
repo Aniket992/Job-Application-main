@@ -61,11 +61,9 @@ const userSchema = new mongoose.Schema(
     ],
     
     skills: [{ type: String }],
-    resume: {
-      data: Buffer, // Binary data of the PDF file
-      contentType: String, // MIME type of the file (e.g., application/pdf)
-      filename: String, // Original filename
-    },
+    
+    resume:  {type:String,required:true},
+
     links: {
       portfolio: { type: String },
       linkedinProfile: { type: String },
