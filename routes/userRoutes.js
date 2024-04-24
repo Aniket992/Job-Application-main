@@ -6,6 +6,8 @@ import {
   changeEmail,
   changePassword,
   deleteUserAccountController,
+  getCandidate,
+  getUserResumeByProvider,
   getUserResumeController,
   updateEducation,
   updateExperience,
@@ -34,8 +36,9 @@ router.put('/change-password',userAuth, changePassword);
 router.put('/change-email',userAuth, changeEmail);
 //UPLOAD RESUME
 router.post('/upload-resume',userAuth,upload.single('resume'),uploadResume);
-
-//GET RESUME
+//GET RESUME By User
 router.get('/get-resume',userAuth,getUserResumeController);
-
+//GET USER by provider
+router.get('/get-candidates',userAuth,getCandidate)
+router.get('/get-userResume',getUserResumeByProvider)
 export default router;

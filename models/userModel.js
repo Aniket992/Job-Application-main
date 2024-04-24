@@ -62,7 +62,7 @@ const userSchema = new mongoose.Schema(
     
     skills: [{ type: String }],
     
-    resume:  {type:String,required:true},
+    resume:  {type:String},
 
     links: {
       portfolio: { type: String },

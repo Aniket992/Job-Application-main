@@ -16,13 +16,11 @@ const jobSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["open", "closed", "interviewing"],
+      enum: ["open", "closed"],
       default: "open",
     },
     workType: {
       type: String,
-      enum: ["full-time", "part-time", "internship", "contract"],
-      default: "full-time",
     },
     workLocation: {
       type: String,
@@ -33,14 +31,14 @@ const jobSchema = new mongoose.Schema(
       type: String,
       // required: [true, "Work location is required"],
     },
-    Category:{
+    category:{
       type: String,
     },
-    JobDescription: {
+    jobDescription: {
       type: String,
       required: [true, "Job Description is required"],
     },
-    Eligibility: { type: String, required: [true, "Eligibility is required"] },
+    eligibility: { type: String, required: [true, "Eligibility is required"] },
     perks: { type: String, required: [true, "perks is required"] },
 
     createdBy: {

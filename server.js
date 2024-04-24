@@ -22,7 +22,6 @@ import errorMiddelware from "./middlewares/errorMiddleware.js";
 import userRoutes from './routes/userRoutes.js'
 import jobRoutes from './routes/jobRoutes.js'
 import ApplicationRoutes from './routes/ApplicationRoutes.js'
-
 // import bodyParser from "body-parser";
 //dot env config
 dotenv.config();

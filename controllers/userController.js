@@ -212,9 +212,8 @@ export const changeEmail = async (req, res) => {
 // UPLOAD RESUME
 export const uploadResume = async (req, res, next) => {
   try {
-    const  resume = req.file.filename;
+    const resume = req.file.filename;
     const userId = req.user.userId;
-
 
     const user = await userModel.findOne({ _id: req.user.userId });
     if (!user) {
@@ -224,8 +223,7 @@ export const uploadResume = async (req, res, next) => {
     user.resume = resume;
     await user.save();
 
-
-    res.status(200).json({ message: "resume uploaded successfully" ,resume});
+    res.status(200).json({ message: "resume uploaded successfully", resume });
   } catch (error) {
     console.error("Error submitting resume:", error);
     res.status(500).json({ message: "Internal server error" });
@@ -258,3 +256,39 @@ export const getUserResumeController = async (req, res) => {
   }
 };
 
+// get user resume by provider
+export const getUserResumeByProvider = async (req, res) => {
+  try {
+    const candidateId = req.query.candidateId; // Extracting candidateId from query parameters
+    console.log(candidateId);
+    const candidate = await userModel.findOne({ _id: candidateId });
+
+    if (!candidate || !candidate.resume) {
+      console.log("Candidate or resume not found");
+      return res.status(404).json({ message: "Candidate or resume not found" });
+    }
+
+    // Get the directory name of the current module
+    const __dirname = dirname(fileURLToPath(import.meta.url));
+
+    const filepath = path.join(__dirname, "../uploads/", candidate.resume);
+    res.sendFile(filepath);
+  } catch (error) {
+    console.error("Error fetching candidate resume:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+
+//GETCANDIDATE
+export const getCandidate = async (req, res, next) => {
+  try {
+    const query = { $or: [{ isDeleted: true }, { userType: 'jobSeeker' }] };
+    const candidates = await userModel.find(query).select('-password');
+
+    res.status(200).json({ candidates });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};

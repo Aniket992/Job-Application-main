@@ -13,6 +13,10 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import BrowseCompanies from "./pages/BrowseCompanies/BrowseCompanies";
 import Messages from "./pages/Messages/Messages";
 import AboutUs from "./pages/AboutUs/AboutUs";
+import ProviderDashboard from "./pages/JobProvider pages/ProviderDashboard/ProviderDashboard";
+import CompanyProfile from "./pages/JobProvider pages/CompanyProfile/CompanyProfile";
+import FindCandidates from "./pages/JobProvider pages/FindCandidates/FindCandidates";
+import PostJobs from "./pages/JobProvider pages/PostJobs/PostJobs";
 function App() {
   return (
     <BrowserRouter>
@@ -23,13 +27,21 @@ function App() {
         <Route path="/FindJobs" element={<FindJobs />}></Route>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/Profile" element={<Profile />} />
+        <Route path="/UserProfile" element={<Profile />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Application" element={<Application />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/UserDashboard" element={<Dashboard />} />
         <Route path="/Settings" element={<Setting />} />
         <Route path="/HelpCenter" element={<HelpCenter />} />
+        {/* //Jobprovider routes */}
+        <Route path="/ProviderDashboard" element={<ProviderDashboard/>}></Route>
+        <Route path="/FindCandidates" element={<FindCandidates/>}></Route>
+        <Route path="/PostJobs" element={<PostJobs/>}></Route>
+        <Route path="/CompanyProfile" element={<CompanyProfile/>}></Route>
+
+
+
       </Routes>
     </BrowserRouter>
   );

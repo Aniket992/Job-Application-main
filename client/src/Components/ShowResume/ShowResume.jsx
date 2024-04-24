@@ -26,7 +26,7 @@ const ShowResume = () => {
 
   useEffect(() => {
     fetchResume();
-  }, [user.user]);
+  }, [user.user.resume]);
 
   return (
     <div className="show-resume">

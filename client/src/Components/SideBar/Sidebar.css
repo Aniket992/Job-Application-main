@@ -1,5 +1,5 @@
 .sidebar {
-  width:fit-content;
+  width:390px;
   height: 100vh;
   background-color:#37374d;
   padding: 20px;
@@ -29,6 +29,7 @@
   text-decoration: none;
   font-size: large;
   font-weight: 400;
+  transition: ease-in-out;
 }
 
 .navLinks:hover {
@@ -44,4 +45,5 @@ border-radius: 5px;
   background-color:rgb(79, 78, 80);
   color: rgb(255, 255, 255);
   padding: 5px;
+  width: 100%;
 }

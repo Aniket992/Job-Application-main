@@ -12,7 +12,6 @@ import arrow from "../../Assets/arrow.png";
 import "./JobByCategories.css";
 
 const JobByCategory = () => {
-  // Define an array of category objects
   const categories = [
     { name: "Business", image: BusinessImage },
     { name: "Technology", image: TechnologyImage },
@@ -23,23 +22,21 @@ const JobByCategory = () => {
     { name: "Finance", image: FinanceImage },
     { name: "Human Resource", image: HRImage },
   ];
+
   const navigate = useNavigate(); 
 
-const handleCard =()=>{
-navigate("/FindJobs");
-}
+  const handleCard = (category) => {
+    navigate("/FindJobs", { state: { category } });
+  }
+
   return (
     <div className="JobByCategory-container">
       <div className="heading-container">
-        <p>
-          Explore By Category
-        </p>
-        <p>Show all jobs</p>
+        <p>Explore By Category</p>
       </div>
-      <div className="category-cards" onClick={handleCard}>
-        
+      <div className="category-cards">
         {categories.map((category, index) => (
-          <div className="category-card" key={index}>
+          <div className="category-card" key={index} onClick={() => handleCard(category.name)}>
             <img src={category.image} alt={category.name} />
             <h3>{category.name}</h3>
             <p>{/* Your jobs count here */} jobs available</p>

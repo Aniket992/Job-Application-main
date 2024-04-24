@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import SideBar from "../../Components/SideBar/SideBar";
 import NotificationDisplay from "../../Components/Notificationdisplay/NotificationDisplay";
 import { useNavigate } from "react-router-dom";
 import "./BrowseCompanies.css";
+import { UserContext } from "../../MyContext";
 import axios from "axios";
 
 const BrowseCompanies = () => {
+  const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -48,31 +50,36 @@ const BrowseCompanies = () => {
           </div>
         </div>
 
-        <div className="browse-companies-container">
-          <div className="company-list">
-            {/* <h1>Browse Companies</h1> */}
-
-            {companies.map((company) => (
-              <div
-                key={company.id}
-                className="company-card"
-                onClick={() => handleCompanyClick(company)}
-              >
-                <h2>{company.name}</h2>
-                <p>{company.email}</p>
-              </div>
-            ))}
+        {user.user.userType === "jobProvider" ? (
+          <div className="job-provider-container">
+            <h1>Get Right Candidate</h1>
+            {/* Add content specific to job providers here */}
           </div>
-          <div className="company-info">
-            {selectedCompany && (
-              <div className="company-description">
-                <h2>{selectedCompany.name}</h2>
-                <p>{selectedCompany.description}</p>
-                {/* Add more details here */}
-              </div>
-            )}
+        ) : (
+          <div className="browse-companies-container">
+            <div className="company-list">
+              {companies.map((company) => (
+                <div
+                  key={company.id}
+                  className="company-card"
+                  onClick={() => handleCompanyClick(company)}
+                >
+                  <h2>{company.name}</h2>
+                  <p>{company.email}</p>
+                </div>
+              ))}
+            </div>
+            <div className="company-info">
+              {selectedCompany && (
+                <div className="company-description">
+                  <h2>{selectedCompany.name}</h2>
+                  <p>{selectedCompany.description}</p>
+                  {/* Add more details here */}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

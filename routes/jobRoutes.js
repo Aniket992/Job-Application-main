@@ -4,6 +4,7 @@ import {
   browseCompanies,
   createJobController,
   deleteJobController,
+  getAllJobsByProvider,
   getAllJobsController,
   updateJobController,
 } from "../controllers/jobsController.js";
@@ -11,7 +12,7 @@ import {
 const router = express.Router();
 
 // CREATE JOB||POST
-router.post("/create-job", userAuth, createJobController);
+router.post("/post-job", userAuth, createJobController);
 // GET JOBS||GET
 router.get("/get-job", getAllJobsController);
 // UPDATE JOBS|| PATCH
@@ -22,5 +23,6 @@ router.delete("/delete-job/:id", userAuth, deleteJobController);
 //COMPANIES...........
 //GET COMPANIES
 router.get("/companies", browseCompanies);
+router.get('/provider/:providerId', getAllJobsByProvider);
 
 export default router;

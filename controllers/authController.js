@@ -12,7 +12,7 @@ export const registerController = async (req, res, next) => {
    
     const existingUser = await userModel.findOne({ email });
     if (existingUser) {
-      return next(new Error("Email already registered. Please login."));
+      return next(new Error("Email already registered. Please login"));
     }
     if (!password || password.length < 6) {
       return next(

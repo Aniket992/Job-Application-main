@@ -2,10 +2,33 @@ import jobsModel from "../models/jobsModel.js";
 import mongoose from "mongoose";
 import moment from "moment";
 import userModel from "../models/userModel.js";
-// ====== CREATE JOB ======
+
+//  CREATE JOB
 export const createJobController = async (req, res, next) => {
-  const { company, position } = req.body;
-  if (!company || !position) {
+  const {
+    logo,
+    company,
+    position,
+    workType,
+    workLocation,
+    salary,
+    category,
+    jobDescription,
+    eligibility,
+    perks,
+  } = req.body;
+  if (
+    !logo ||
+    !company ||
+    !position ||
+    !workType ||
+    !workLocation ||
+    !salary ||
+    !category ||
+    !jobDescription ||
+    !eligibility ||
+    !perks
+  ) {
     next("Please Provide All Fields");
   }
   req.body.createdBy = req.user.userId;
@@ -13,9 +36,12 @@ export const createJobController = async (req, res, next) => {
   res.status(201).json({ job });
 };
 
+// GET ALL JOBS
+
 export const getAllJobsController = async (req, res, next) => {
-  const { location, workType, company, position, sort,salary,jobLevel } = req.query;
-  
+  const { location, workType, company, position, sort, salary, jobLevel } =
+    req.query;
+
   const queryObject = {};
 
   if (position) {
@@ -70,7 +96,6 @@ export const getAllJobsController = async (req, res, next) => {
 };
 
 // ======= UPDATE JOBS ===========
-
 
 export const updateJobController = async (req, res, next) => {
   const { id } = req.params;
@@ -149,19 +174,40 @@ export const rateJobController = async (req, res, next) => {
   }
 };
 
-
 //COMPANIES CONTROLLERS
 
 export const browseCompanies = async (req, res) => {
   try {
-    const companies = await userModel.find({ userType: 'jobProvider' });
-    if(companies==null){
+    const companies = await userModel.find({ userType: "jobProvider" });
+    if (companies == null) {
       console.log("no jobs found");
     }
     res.status(200).json({ success: true, companies });
   } catch (error) {
-    console.error('Error fetching companies:', error);
-    res.status(500).json({ success: false, error: 'Internal Server Error' });
+    console.error("Error fetching companies:", error);
+    res.status(500).json({ success: false, error: "Internal Server Error" });
   }
 };
 
+// GET POSTED JOBS BY PROVIDER
+
+export const getAllJobsByProvider = async (req, res) => {
+  try {
+    const { providerId } = req.params;
+    const user = await userModel.findOne({ _id: providerId });
+    if (!user) {
+      console.log("User not found");
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const jobs = await jobsModel.find({ createdBy: providerId });
+    if (!jobs || jobs.length === 0) {
+      return res.status(404).json({ message: "No jobs found" });
+    }
+    
+    res.status(200).json(jobs);
+  } catch (error) {
+    console.error("Error fetching jobs:", error);
+    res.status(500).json({ message: error.message });
+  }
+};

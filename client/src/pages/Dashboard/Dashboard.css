@@ -5,20 +5,23 @@
 .values-container{
     width: 100%;
     background-color: #202430;
-    color: wheat;
 }
 .applied-jobs{
-  overflow: hidden;
-  scrollbar-width: none;
+  color: wheat;
+  /* background-color: aliceblue; */
+ 
     margin: 20px;
     padding: 10px;
     border: 1.5px solid rgb(138, 128, 128);
-    height: 80%;
+    max-height: 80%;
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 .application-tracker{
+  overflow: scroll;
+  scroll-behavior:smooth;
+  scrollbar-width: none;
   /* background-color: aqua; */
   display: flex;
   flex-direction: column;
