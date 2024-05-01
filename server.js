@@ -35,15 +35,15 @@ connectDB();
 const app = express();
 
 //cors
-app.use(cors(
-    {
-        origin: 'https://recruitify-aniket992s-projects.vercel.app',
+// app.use(cors(
+//     {
+//         origin: 'https://recruitify-aniket992s-projects.vercel.app',
 
-        methods:["POST","GET","DELETE","PATCH"],
+//         methods:["POST","GET","DELETE","PATCH"],
 
-        credentials: true
-    }
-));
+//         credentials: true
+//     }
+// ));
 
 //middlewares
 // app.use(helmet(``));
@@ -54,7 +54,8 @@ app.use(cors());
 app.use(morgan("dev"));
 
 
-// routes
+// routes(
+    app.use("/",testRoutes);
 app.use("/api/v1/test", testRoutes);
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/user", userRoutes);
