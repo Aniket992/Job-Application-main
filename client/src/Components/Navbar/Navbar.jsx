@@ -19,11 +19,11 @@ const Navbar = () => {
   };
   
   const handleLogo = () => {
-    navigate("/");
+    navigate("/Home");
   };
   
   const handleProfile = () => {
-    navigate("/Profile");
+    navigate("/UserProfile");
   };
   
   const handleLogin = () => {

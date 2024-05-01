@@ -27,7 +27,9 @@ const Dashboard = () => {
             "http://localhost:8080/api/v1/application/applications",
             { headers: headers }
           );
-          setApplications(response.data);
+          // setApplications(response.data);
+          setApplications(response.data.reverse()); // Reverse the array here
+
           console.log(response.data);
         } catch (error) {
           console.error("Error fetching applications:", error);
@@ -38,7 +40,7 @@ const Dashboard = () => {
   }, [user]);
 
   const handleClick = () => {
-    navigate("/");
+    navigate("/Home");
   };
   const handleViewJob = (job) => {
     setSelectedJob(job);
@@ -88,7 +90,7 @@ const Dashboard = () => {
                       <div className="application-element">
                         <p>{application.jobDetails.company}</p>
                       </div>
-                      <div className="application-element">
+                      <div className="application-element status">
                         <p>{application.application.status}</p>
                       </div>
                       <button onClick={() => handleViewJob(application)}>
@@ -99,39 +101,7 @@ const Dashboard = () => {
               </div>
             </div>
           )}
-          {user.user.userType === "jobProvider" && (
-            <div className="welcome-message">
-              <h3>Welcome to Job Posting Dashboard</h3>
-              {/* Add any other content or functionality specific to job providers */}
-            </div>
-          )}
-          {isPopupOpen && (
-            <div className="popup-container">
-              <div className="popup">
-                <h2>Job Description</h2>
-                <h3>Company name:</h3>
-                <p>{selectedJob.jobDetails.company}</p>
-                <h3>Position:</h3>
-                <p>{selectedJob.jobDetails.position}</p>
-                <h3>Work Location</h3>
-                <p>{selectedJob.jobDetails.workLocation}</p>
-                <h3>Work Type:</h3>
-                <p>{selectedJob.jobDetails.workType}</p>
-                <h3>Salary:</h3>
-                <p>{selectedJob.jobDetails.salary}</p>
-                <h3> Work Details:</h3>
-                <p>{selectedJob.jobDetails.jobDescription}</p>
-                <h3>Eligibility</h3>
-                <p>{selectedJob.jobDetails.eligibility}</p>
-                <h3>Perks:</h3>
-                <p>{selectedJob.jobDetails.perks}</p>
-                <h3>Application Status</h3>
-                <p>{selectedJob.jobDetails.status}</p>
-
-                <button onClick={handleClosePopup}>Close</button>
-              </div>
-            </div>
-          )}
+         
         </div>
       </div>
     </>

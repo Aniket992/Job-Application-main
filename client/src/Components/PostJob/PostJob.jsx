@@ -3,7 +3,7 @@ import "./PostJob.css";
 import { UserContext } from "../../MyContext";
 import React, { useContext, useState, useEffect } from "react";
 
-const PostJob = () => {
+const PostJob = ({ onJobPosted }) => {
   const { user, setUser } = useContext(UserContext);
   const [jobData, setJobData] = useState({
     logo: "",
@@ -61,6 +61,7 @@ const PostJob = () => {
       );
       console.log(response.data);
       alert("success");
+      onJobPosted();
     } catch (error) {
         alert(error);
       console.error("Error posting job:", error);

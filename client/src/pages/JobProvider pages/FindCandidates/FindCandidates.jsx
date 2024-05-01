@@ -10,7 +10,7 @@ const FindCandidates = () => {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/");
+    navigate("/Home");
   };
 
   const [candidates, setCandidates] = useState([]);

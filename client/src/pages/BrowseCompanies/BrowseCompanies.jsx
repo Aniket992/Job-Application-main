@@ -11,7 +11,7 @@ const BrowseCompanies = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/");
+    navigate("/Home");
   };
 
   const [companies, setCompanies] = useState([]);

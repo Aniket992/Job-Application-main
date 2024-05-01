@@ -13,7 +13,7 @@
     margin: 20px;
     padding: 10px;
     border: 1.5px solid rgb(138, 128, 128);
-    max-height: 80%;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -26,6 +26,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  /* height: 90%; */
 }
 
 
@@ -51,9 +52,12 @@
  .application-element{
   display: flex;
   width: 30%;
-  text-align: center;
-  align-items: center;
-  /* background-color: aqua; */
+ }
+ .status p{
+  color: #202430;
+  background-color: rgb(37, 202, 25);
+  padding: 2px 5px;
+  border-radius: 10px;
  }
 .application-label{
  font-size: large;

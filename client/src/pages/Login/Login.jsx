@@ -52,7 +52,7 @@ const Login = () => {
 
       localStorage.setItem("user", JSON.stringify(userData));
 
-      navigate("/");
+      navigate("/Home");
     } catch (error) {
       // Handle errors
       console.log("Error:", error); // Log the error object

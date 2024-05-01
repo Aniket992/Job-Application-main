@@ -14,7 +14,7 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/");
+    navigate("/Home");
   };
 
   return (
@@ -47,7 +47,7 @@ const Profile = () => {
                     <h3>{user.user.name + user.user.lastName}</h3>
                     <p>{user.user.location}</p>
                     <p>{user.user.email}</p>
-                    <p>Looking for position: Software Developer</p>
+                    {/* <p>Looking for position: Software Developer</p> */}
                   </div>
                 </div>
                 <div className="About-me">
@@ -65,17 +65,21 @@ const Profile = () => {
                 </div>
                 <div className="experience">
                   <h1>Experience:</h1>
-                  {user.user.experience.map((exp, index) => (
-                    <div key={index}>
-                      <p>POSITION: {exp.position} </p>
-                      <p>COMPANY NAME: {exp.company}</p>
-                      <p>DURATION: {exp.duration}</p>
-                      <p>YEAR: {exp.year}</p>
-                    </div>
-                  ))}
+                  <div className="experience-info">
+                    {user.user.experience.map((exp, index) => (
+                      <div key={index}>
+                        <p>POSITION: {exp.position} </p>
+                        <p>COMPANY NAME: {exp.company}</p>
+                        <p>DURATION: {exp.duration}</p>
+                        <p>YEAR: {exp.year}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div className="education">
                   <h1>Education:</h1>
+                  <div className="experience-info">
+
                   {user.user.education.map((edu, index) => (
                     <div key={index}>
                       <p>LEVEL: {edu.level} </p>
@@ -84,13 +88,19 @@ const Profile = () => {
                       <p>YEAR: {edu.year}</p>
                     </div>
                   ))}
+                                  </div>
+
                 </div>
                 <div className="skills">
                   <h1>Skills:</h1>
-                  <p>{user.user.skills}</p>
+                  <div className="experience-info">
+                  <p>{user.user.skills.join(", ")}</p>
+
                 </div>
+                </div>
+
               </div>
-              <div className="additional-info">
+              {/* <div className="additional-info">
                 <div className="social-links">
                   <h3>Additional Details</h3>
                   <button>Portfolio</button>
@@ -98,7 +108,7 @@ const Profile = () => {
                   <button>Edit</button>
                 </div>
                 <button>Edit</button>
-              </div>
+              </div> */}
             </div>
           ) : (
             <div className="no-user">

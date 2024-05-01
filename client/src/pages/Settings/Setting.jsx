@@ -15,7 +15,7 @@ const Setting = () => {
   const [selectedOption, setSelectedOption] = useState('UserProfile');
 
   const handleClick = () => {
-    navigate("/");
+    navigate("/Home");
   };
 
   useEffect(() => {

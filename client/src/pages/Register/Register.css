@@ -64,15 +64,16 @@ color: #fff;
 }
 .Register-input-container select{
   background-color: #eae7e7;
+  text-align: center;
   width:fit-content;
   border: none;
   height: 30px;
   align-self: center;
   color: #0056b3;
-  font-size: larger;
-  font-weight: 500;
-  padding: 6px;
-  margin-top: 20px;
+  font-size: small;
+  font-weight: 400;
+  padding: 3px 10px;
+  margin-top: 20px ;
 }
 .Register-input-container label{
   width:90%;

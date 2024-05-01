@@ -148,17 +148,7 @@ const UserCredentials = () => {
           law. Privacy Policy Your privacy is important to us. It is our policy
           to respect your privacy regarding any information we may collect from
           you across our website, [Your Website Name], and other sites we own
-          and operate. We only ask for personal information when we truly need
-          it to provide a service to you. We collect it by fair and lawful
-          means, with your knowledge and consent. We also let you know why we're
-          collecting it and how it will be used. We only retain collected
-          information for as long as necessary to provide you with your
-          requested service. What data we store, we'll protect within
-          commercially acceptable means to prevent loss and theft, as well as
-          have no control over the content and practices of these sites, and
-          cannot accept responsibility or liability for their respective privacy
-          policies. By using our website, you hereby consent to our terms of
-          service and agree to its privacy policy.
+          and operate. 
         </p>
         <h3>Privacy Policy</h3>
         <p>
@@ -172,11 +162,7 @@ const UserCredentials = () => {
           copying, use, or modification. We don't share any personally
           identifying information publicly or with third-parties, except when
           required to by law. Our website may link to external sites that are
-          not operated by us. Please be aware that we have no control over the
-          content and practices of these sites, and cannot accept responsibility
-          or liability for their respective privacy policies. By using our
-          website, you hereby consent to our terms of service and agree to its
-          privacy policy.
+          not operated by us. 
         </p>
       </div>
       <ToastContainer

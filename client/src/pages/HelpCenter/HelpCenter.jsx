@@ -81,7 +81,7 @@ const HelpCenter = () => {
     alert("Form submitted!");
   };
   const handleClick = () => {
-    navigate("/");
+    navigate("/Home");
   };
   return (
     <div className="help-center">

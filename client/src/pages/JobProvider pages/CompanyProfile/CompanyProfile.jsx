@@ -13,7 +13,7 @@ const CompanyProfile = () => {
 
 
   const handleClick = () => {
-    navigate("/");
+    navigate("/Home");
   };
 
   return (

@@ -25,8 +25,8 @@ function App() {
         <Route path="/Messages" element={<Messages />}></Route>
         <Route path="/BrowseCompanies" element={<BrowseCompanies />}></Route>
         <Route path="/FindJobs" element={<FindJobs />}></Route>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/" element={<Login />} />
         <Route path="/UserProfile" element={<Profile />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Application" element={<Application />} />
@@ -39,9 +39,6 @@ function App() {
         <Route path="/FindCandidates" element={<FindCandidates/>}></Route>
         <Route path="/PostJobs" element={<PostJobs/>}></Route>
         <Route path="/CompanyProfile" element={<CompanyProfile/>}></Route>
-
-
-
       </Routes>
     </BrowserRouter>
   );

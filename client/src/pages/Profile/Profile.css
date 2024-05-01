@@ -50,11 +50,13 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 70%;
+  /* width: 70%; */
   align-items: center;
   gap: 30px;
   max-height: 90vh;
+  scrollbar-width: none;
   overflow-y: auto;
+  margin: auto;
 }
 .profile-cover {
   width: 100%;
@@ -103,35 +105,39 @@ flex-direction: column;
   padding: 10px;
   width: 100%;
 display: flex;
-gap: 30px;
+justify-content: space-between;
   height: 300px;
   border: 1px solid gray;
+}
+.experience-info{
+  display: flex;
+justify-content: space-evenly;
+width: 70%;
+gap: 30px;
 }
 .education {
   padding: 10px;
   display: flex;
-  gap: 30px;
+  justify-content: space-between;
   width: 100%;
-
   height: 300px;
   border: 1px solid gray;
 }
 .skills {
   padding: 10px;
   display: flex;
-  align-items: center;
-  gap: 30px;
+  /* align-items: center; */
+  justify-content: space-between;
   width: 100%;
-
   height: 300px;
   border: 1px solid gray;
 }
 
-.additional-info {
+/* .additional-info {
   width: 30%;
   text-align: center;
   margin: 20px;
-}
+} */
 .social-links{
   width: 90%;
   padding: 20px;

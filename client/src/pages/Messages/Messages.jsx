@@ -8,7 +8,7 @@ const Messages = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/");
+    navigate("/Home");
   };
   return (
     <div className='Messages'>

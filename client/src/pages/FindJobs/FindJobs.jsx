@@ -43,7 +43,7 @@ const FindJobs = () => {
   }, []);
 
   const handleClick = () => {
-    navigate("/");
+    navigate("/Home");
   };
 
   const handleApply = (jobId) => {
