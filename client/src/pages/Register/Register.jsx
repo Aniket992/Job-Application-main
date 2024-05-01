@@ -30,12 +30,12 @@ const Register = () => {
 
   const notify = () => {
     toast.success('Account created successfully. Redirecting to login page...', {
-      onClose: () => navigate("/Login") // Redirect to login page after toast closes
+      onClose: () => navigate("/") // Redirect to login page after toast closes
     });
   };
 
   const handleRegister = () => {
-    navigate("/Login")
+    navigate("/")
   };
 
   const handleSubmit = async (e) => {
