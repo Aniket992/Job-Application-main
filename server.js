@@ -26,11 +26,22 @@ import ApplicationRoutes from './routes/ApplicationRoutes.js'
 //dot env config
 dotenv.config();
 
+
+
 //mongodb connection
 connectDB();
 
 //rest object
 const app = express();
+
+//cors
+app.use(cors(
+    {
+        origin:[],
+        methods:["POST","GET","DELETE","PATCH"],
+        credentials: true
+    }
+));
 
 //middlewares
 // app.use(helmet(``));
