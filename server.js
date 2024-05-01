@@ -37,8 +37,10 @@ const app = express();
 //cors
 app.use(cors(
     {
-        origin:[],
+        origin: 'https://recruitify-aniket992s-projects.vercel.app',
+
         methods:["POST","GET","DELETE","PATCH"],
+
         credentials: true
     }
 ));
