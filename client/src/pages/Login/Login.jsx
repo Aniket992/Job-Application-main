@@ -32,7 +32,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch("https://job-application-main.vercel.app/api/v1/auth/login", {
+      const response = await fetch("https://server-git-main-aniket992s-projects.vercel.app//api/v1/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
