@@ -14,7 +14,7 @@ const ShowResume = () => {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       };
-      const response = await axios.get("/api/v1/user/get-resume", { responseType: 'blob', headers: headers });
+      const response = await axios.get("http://localhost:8080/api/v1/user/get-resume", { responseType: 'blob', headers: headers });
 
       const resumeBlob = new Blob([response.data], { type: response.headers['content-type'] });
       const resumeUrl = URL.createObjectURL(resumeBlob);

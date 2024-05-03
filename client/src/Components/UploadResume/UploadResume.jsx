@@ -28,7 +28,7 @@ const UploadResume = () => {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           };
-          const response = await axios.post("/api/v1/user/upload-resume", formData, {
+          const response = await axios.post("http://localhost:8080/api/v1/user/upload-resume", formData, {
             headers: headers,
           });
           setUser({

@@ -34,7 +34,7 @@ connectDB();
 //rest object
 const app = express();
 
-//cors
+// cors
 // app.use(cors(
 //     {
 //         origin: 'https://recruitify-aniket992s-projects.vercel.app',
@@ -47,7 +47,7 @@ const app = express();
 
 //middlewares
 // app.use(helmet(``));
-// app.use(xss());
+app.use(xss());
 app.use(mongoSanitize());
 app.use(express.json());
 app.use(cors());
@@ -55,12 +55,15 @@ app.use(morgan("dev"));
 
 
 // routes(
-    app.use("/",testRoutes);
 app.use("/api/v1/test", testRoutes);
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/job",jobRoutes);
 app.use("/api/v1/application",ApplicationRoutes);
+
+app.get("/api/v1", (req, res) => {
+    res.send("Hello! The backend is running.");
+  });
 
 //validation middelware
 app.use(errorMiddelware);

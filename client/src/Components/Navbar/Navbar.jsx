@@ -27,7 +27,7 @@ const Navbar = () => {
   };
   
   const handleLogin = () => {
-    navigate("/Login");
+    navigate("/");
   };
   
   const handleSignUp = () => {
