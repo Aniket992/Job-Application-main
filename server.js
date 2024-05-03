@@ -37,7 +37,7 @@ const app = express();
 cors
 app.use(cors(
     {
-        origin: 'https://server-bxiw2qoqw-aniket992s-projects.vercel.app/',
+        origin: 'https://server-bxiw2qoqw-aniket992s-projects.vercel.app',
 
         methods:["POST","GET","DELETE","PATCH"],
 
