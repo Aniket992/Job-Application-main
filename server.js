@@ -61,7 +61,7 @@ app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/job",jobRoutes);
 app.use("/api/v1/application",ApplicationRoutes);
 
-app.get("/api/v1", (req, res) => {
+app.get("/", (req, res) => {
     res.send("Hello! The backend is running.");
   });
 
