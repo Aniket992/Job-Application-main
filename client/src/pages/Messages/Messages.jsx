@@ -23,6 +23,9 @@ const Messages = () => {
               </div>
             </div>
           </div>
+          <div className="messages-info">
+            <h3>No message to display</h3>
+          </div>
         </div>
     </div>
   )

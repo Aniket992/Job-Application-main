@@ -56,7 +56,7 @@ const PostJobs = () => {
 
           <div className="job-posted-container">
 
-            {isLoading ? (
+            {/* {isLoading ? (
               <p>Loading...</p>
             ) : jobs.length === 0 ? (
               <p>No jobs found</p>
@@ -76,7 +76,7 @@ const PostJobs = () => {
                   </div>
                 ))}
               </div>
-            )}
+            )} */}
             <PostJob onJobPosted={handleJobPosted} />
           </div>
         </div>

@@ -5,7 +5,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "start": "npm run server",
+    "server": "node server.js",
     "start-client": "cd client && npm start"
   },
   "author": "Aniket",

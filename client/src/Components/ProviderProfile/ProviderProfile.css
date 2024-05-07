@@ -1,0 +1,84 @@
+
+.Pbasicdetails-container{
+    /* background-color: aquamarine; */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: wheat;
+  }
+  .Pbasicdetails-container input{
+    width: 170px;
+    background-color: rgb(79, 67, 67);
+    border: none;
+    height: 30px;
+    border-radius: 5px ;
+    padding: 5px;
+    color: white;
+  }
+  .Pbasicdetails-container button{
+    font-weight: 500;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(41, 70, 232);
+    /* align-self: flex-end; */
+    color: rgb(235, 235, 235);
+  }
+  .Pbasicdetails-container select{
+    background-color: rgb(79, 67, 67);
+    border: none;
+    height: 30px;
+    border-radius: 5px ;
+    padding: 5px;
+    color: white;
+    width: 170px;
+  }
+  
+  .Pbasic-details-container {
+    /* width: 100%; */
+    padding: 8px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    display:flex;
+    gap: 30px;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+  }
+  
+  .Provider{
+    height:70vh;
+    display: flex;
+    align-items: center;
+    /* width: 100%; */
+    /* background-color: blueviolet; */
+    justify-content:center;
+  }
+
+ 
+  .main-profile-container{
+    margin: 10px;
+  display: flex;
+  width: 100%;
+  /* background-color: aliceblue; */
+  max-height: 80vh;
+  display: flex;
+  justify-content: center;
+  }
+
+  .logo-name-container{
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    gap: 30px;
+    
+  }
+  .Pbasicdetails-container img{
+    width: 100px;
+    border-radius: 5px;
+  }

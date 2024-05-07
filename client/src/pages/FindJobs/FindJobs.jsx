@@ -33,6 +33,7 @@ const FindJobs = () => {
         const response = await axios.get(
           `http://localhost:8080/api/v1/job/get-job`
         );
+        console.log(response.data)
         setJobs(response.data.jobs);
         setFilteredJobs(response.data.jobs);
       } catch (error) {
@@ -65,7 +66,7 @@ const FindJobs = () => {
           filters.employmentType === job.workType
         ) {
           if (!filters.categories || filters.categories === job.category) {
-            if (!filters.jobLevel || filters.jobLevel === job.jobLevel) {
+            if (!filters.jobLevel || filters.jobLevel === job.level) {
               if (!filters.salaryRange || filters.salaryRange === job.salary) {
                 return true;
               }
@@ -142,7 +143,7 @@ const FindJobs = () => {
                     }
                   >
                     <option value="">Select Type of Employment</option>
-                    <option value="full-time">Full-time</option>
+                    <option value="Full-time">Full-time</option>
                     <option value="Part-time">Part-time</option>
                     <option value="Contract">Contract</option>
                     <option value="Internship">Internship</option>
@@ -205,6 +206,7 @@ const FindJobs = () => {
               </div>
 
               <div className="jobs-container">
+                <h4>{jobs.length}</h4>
                 <h5>Showing {filteredJobs.length} results</h5>
                 <div className="job-cards-container">
                   {filteredJobs.map((job) => (
@@ -252,8 +254,7 @@ const FindJobs = () => {
             <p>{selectedJob.eligibility}</p>
             <h3>Perks:</h3>
             <p>{selectedJob.perks}</p>
-            <h3>Application Status</h3>
-            <p>{selectedJob.status}</p>
+            <p>{selectedJob.skills}</p>
 
             <button onClick={handleClosePopup}>Close</button>
           </div>

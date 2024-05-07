@@ -1,0 +1,60 @@
+.candidates-container{
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    margin: 5px;
+}
+.candi-jobs{
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid gray;
+    width: 100%;
+}
+.candi-applications{
+    padding: 5px;
+
+    border-radius: 5px;
+    border: 2px solid gray;
+    width: 100%;
+
+}
+.applicant{
+    padding: 5px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid gray;
+}
+.applicant ul{
+    display: flex;
+    gap: 20px;
+}
+.applicant li{
+    display: flex;
+}
+.candidates-container button{
+    border: none;
+    border-radius: 5px;
+    padding: 2px;
+    color: white;
+    background-color: blue;
+}
+.candi-applications{
+    /* background-color: gold; */
+ 
+
+}
+.applications-candidate{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.applications-candidate li{
+    display: flex;
+    display: block;
+    list-style: none;
+    padding: 5px;
+   border-radius: 5px;
+   border: 2px solid gray;
+
+}

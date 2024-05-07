@@ -279,16 +279,93 @@ export const getUserResumeByProvider = async (req, res) => {
   }
 };
 
-
-//GETCANDIDATE
+//GET CANDIDATE
 export const getCandidate = async (req, res, next) => {
   try {
-    const query = { $or: [{ isDeleted: true }, { userType: 'jobSeeker' }] };
-    const candidates = await userModel.find(query).select('-password');
-
-    res.status(200).json({ candidates });
+    const userId = req.params.userId; // Use req.params instead of req.query
+    console.log("hello candidate");
+    const candidate = await userModel.findById(userId); // Use findById instead of find
+    if (!candidate) {
+      return res.status(404).json({ message: "Candidate or resume not found" });
+    }
+    console.log(candidate);
+    res.status(200).json(candidate); // Return the candidate directly without wrapping in an object
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+
+//Provider Update
+export const updateProvider = async (req, res, next) => {
+  const { logo,companyName } = req.body;
+  if (!logo||!companyName) {
+    next("Please Provide Fields");
+  }
+  const userId = req.user.id;
+  try {
+    const user = await userModel.findOneAndUpdate(
+      { _id: req.user.userId },
+      { companyName: companyName, companyLogo: logo },
+      { new: true }
+    );
+
+    res.status(200).json({ success: true, user: user });
+  } catch (error) {
+    console.error("Error updating info:", error);
+    next("Error updating info");
+  }
+};
+export const updateText = async (req, res) => {
+  try {
+    const { text } = req.body;
+    const userId = req.user.id;
+    console.log("hello text");
+
+    // Find the user by ID
+    const user = await userModel.findOne({ _id: req.user.userId });
+
+    // If the user is not found, return a 404 response
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update the user's text field
+    user.text = text;
+
+    // Save the updated user object
+    await user.save();
+
+    // Return a success response with the updated user object
+    return res.status(200).json({ message: "Text changed successfully", user });
+  } catch (error) {
+    // If an error occurs, log it and return a 500 response
+    console.error("Error changing text:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const updateAbout = async (req, res) => {
+  try {
+    const { about } = req.body;
+    const userId = req.user.id;
+    console.log("hello about");
+
+    const user = await userModel.findOne({ _id: req.user.userId });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    user.about = about;
+    await user.save();
+
+    // Return a success response with the updated user object
+    return res.status(200).json({ message: "about changed successfully", user });
+  } catch (error) {
+    // If an error occurs, log it and return a 500 response
+    console.error("Error changing about:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+

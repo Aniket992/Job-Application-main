@@ -6,3 +6,9 @@
     display: flex;
     flex-direction: column;
 }
+.messages-info{
+    background-color: #202430;
+    color: wheat;
+    height: 100%;
+    text-align: center;
+}

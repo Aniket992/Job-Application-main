@@ -68,4 +68,8 @@
   padding: 10px;
   justify-content:space-between;
 }
-  
+.status {
+  font-weight: bold;
+}
+
+

@@ -34,23 +34,25 @@ connectDB();
 //rest object
 const app = express();
 
-// cors
-// app.use(cors(
-//     {
-//         origin: 'https://server-git-main-aniket992s-projects.vercel.app',
 
-//         methods:["POST","GET","DELETE","PATCH"],
-
-//         credentials: true
-//     }
-// ));
 
 //middlewares
-// app.use(helmet(``));
+app.use(helmet());
 app.use(xss());
 app.use(mongoSanitize());
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+
+    {
+        origin: 'https://server-git-main-aniket992s-projects.vercel.app',
+
+        methods:["POST","GET","DELETE","PATCH","PUT"],
+
+        credentials: true
+    }
+
+
+));
 app.use(morgan("dev"));
 
 

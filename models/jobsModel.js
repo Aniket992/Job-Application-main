@@ -40,7 +40,8 @@ const jobSchema = new mongoose.Schema(
     },
     eligibility: { type: String, required: [true, "Eligibility is required"] },
     perks: { type: String, required: [true, "perks is required"] },
-
+    skills:{type:String, required: [true, "skills is required"]},
+    level:{type:String,required:[true,"level is required"]},
     createdBy: {
       type: mongoose.Types.ObjectId,
       ref: "User",

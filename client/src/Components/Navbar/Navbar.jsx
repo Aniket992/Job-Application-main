@@ -15,6 +15,7 @@ const Navbar = () => {
     if (confirmSignout) {
       setUser(null); // Clear the user context
       setShowDropdown(false); // Hide the dropdown after signout
+      navigate("/");
     }
   };
   

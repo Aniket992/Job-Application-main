@@ -7,6 +7,7 @@ import NotificationDisplay from '../../Components/Notificationdisplay/Notificati
 import "./Setting.css";
 import { UserContext } from "../../MyContext";
 import ShowResume from '../../Components/ShowResume/ShowResume';
+import ProviderProfile from '../../Components/ProviderProfile/ProviderProfile';
 
 const Setting = () => {
   const { user } = useContext(UserContext);
@@ -34,7 +35,7 @@ const Setting = () => {
   };
 
   const renderSelectedOption = () => {
-    if (user) {
+    if (user ) {
       switch (selectedOption) {
         case 'UserProfile':
           return <UserProfile />;
@@ -43,6 +44,7 @@ const Setting = () => {
         default:
           return null;
       }
+   
     } else {
       return (
         <div>
@@ -51,6 +53,7 @@ const Setting = () => {
       );
     }
   };
+  
 
   return (
     <div className='setting'>

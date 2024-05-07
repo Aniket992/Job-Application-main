@@ -6,13 +6,28 @@ import "primeicons/primeicons.css";
 import NotificationDisplay from "../../../Components/Notificationdisplay/NotificationDisplay";
 import SideBar from "../../../Components/SideBar/SideBar";
 import "./ProviderDashboard.css";
+import PostJobs from "../PostJobs/PostJobs";
+import PostJob from "../../../Components/PostJob/PostJob";
 const ProviderDashboard = () => {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
- 
+  const fetchJobs = async () => {
+    try {
+      const response = await axios.get(`/api/v1/job/provider/${user.user._id}`);
+      setJobs(response.data);
+    } catch (error) {
+      console.error("Error fetching jobs:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchJobs();
+  }, [user]);
 
   const handleClick = () => {
     navigate("/Home");
@@ -33,8 +48,32 @@ const ProviderDashboard = () => {
             </div>
           </div>
           <hr />
-         
+          <div className="job-posted-container">
+
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : jobs.length === 0 ? (
+              <p>No jobs found</p>
+            ) : (
+              <div className="job-posted">
+                                <h2>{jobs.length}</h2>
+
+                {jobs.map((job) => (
+                  <div key={job._id} className="job-item">
+                    <h5>{job.position}</h5>
+                    <p>Salary: {job.salary}</p>
+                    <div className="button-container">
+                    <button>Update job</button>
+                    <button>delete job</button>
+                      </div> 
+                    
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
+      
       </div>
     </>
   );

@@ -17,6 +17,8 @@ import ProviderDashboard from "./pages/JobProvider pages/ProviderDashboard/Provi
 import CompanyProfile from "./pages/JobProvider pages/CompanyProfile/CompanyProfile";
 import FindCandidates from "./pages/JobProvider pages/FindCandidates/FindCandidates";
 import PostJobs from "./pages/JobProvider pages/PostJobs/PostJobs";
+import RecommendedJobs from "./pages/RecommendedJobs/RecommendedJobs";
+import ProviderProfile from "./Components/ProviderProfile/ProviderProfile";
 function App() {
   return (
     <BrowserRouter>
@@ -34,6 +36,10 @@ function App() {
         <Route path="/UserDashboard" element={<Dashboard />} />
         <Route path="/Settings" element={<Setting />} />
         <Route path="/HelpCenter" element={<HelpCenter />} />
+        <Route path="/RecommendedJobs" element={<RecommendedJobs/>} />
+        <Route path="/ProviderProfile" element={<ProviderProfile/>} />
+
+
         {/* //Jobprovider routes */}
         <Route path="/ProviderDashboard" element={<ProviderDashboard/>}></Route>
         <Route path="/FindCandidates" element={<FindCandidates/>}></Route>

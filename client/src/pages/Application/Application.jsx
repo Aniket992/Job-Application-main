@@ -1,15 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState , useEffect} from "react";
 import axios from "axios";
 import { UserContext } from "../../MyContext";
 import "./Application.css";
 import SideBar from "../../Components/SideBar/SideBar";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Application = () => {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const [resume, setResume] = useState(null);
-  const location = useLocation(); 
+  const location = useLocation();
+  const [profileComplete, setProfileComplete] = useState(true); // Assuming profile is initially complete
+
+  useEffect(() => {
+    // Check if all necessary user fields are available
+    if (
+      !user.user.name ||
+      !user.user.lastName ||
+      !user.user.email ||
+      !user.user.skills ||
+      !user.user.experience.length ||
+      !user.user.education.length ||
+      user.user.experience.some(exp => !exp.position || !exp.company || !exp.duration || !exp.startingYear) ||
+      user.user.education.some(edu => !edu.level || !edu.institute || !edu.percentage || !edu.year)
+    ) {
+      setProfileComplete(false);
+    }
+  }, [user]);
+
+  const redirectToSettings = () => {
+    navigate("/Settings");
+  };
+
 
   const handleResumeUpload = (e) => {
     setResume(e.target.files[0]);
@@ -22,7 +44,9 @@ const Application = () => {
       return;
     }
 
-    const jobId = location.state.jobId; 
+  
+
+    const jobId = location.state.jobId;
 
     try {
       const formData = new FormData();
@@ -33,7 +57,7 @@ const Application = () => {
       formData.append("education", JSON.stringify(user.user.education));
       formData.append("experience", JSON.stringify(user.user.experience));
       formData.append("resume", resume);
-      formData.append("jobId", jobId); 
+      formData.append("jobId", jobId);
 
       const token = user.token;
       const headers = {
@@ -75,7 +99,7 @@ const Application = () => {
               <p>POSITION:{exp.position} </p>
               <p>COMPANY NAME:{exp.company}</p>
               <p>DURATION:{exp.duration}</p>
-              <p>YEAR:{exp.year}</p>
+              <p>YEAR:{exp.startingYear}</p>
             </div>
           ))}
         </div>
@@ -106,6 +130,14 @@ const Application = () => {
           <button type="submit">Submit Application</button>
         </div>
       </form>
+      {!profileComplete && (
+       <div className="popup-overlay">
+       <div className="popup-content">
+         <p>Please complete your profile before applying.</p>
+         <button onClick={redirectToSettings}>Go to Settings</button>
+       </div>
+     </div>
+      )}
     </div>
   );
 };

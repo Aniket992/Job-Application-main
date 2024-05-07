@@ -16,6 +16,8 @@ export const createJobController = async (req, res, next) => {
     jobDescription,
     eligibility,
     perks,
+    skills,
+    level
   } = req.body;
   if (
     !logo ||
@@ -27,7 +29,9 @@ export const createJobController = async (req, res, next) => {
     !category ||
     !jobDescription ||
     !eligibility ||
-    !perks
+    !perks||
+    !skills||
+    !level
   ) {
     next("Please Provide All Fields");
   }
@@ -67,7 +71,7 @@ export const getAllJobsController = async (req, res, next) => {
   try {
     //pagination
     const page = Number(req.query.page) || 1;
-    const limit = Number(req.query.limit) || 35;
+    const limit = Number(req.query.limit) || 60;
     const skip = (page - 1) * limit;
 
     const totalJobs = await jobsModel.countDocuments(queryObject);
@@ -179,9 +183,11 @@ export const rateJobController = async (req, res, next) => {
 export const browseCompanies = async (req, res) => {
   try {
     const companies = await userModel.find({ userType: "jobProvider" });
-    if (companies == null) {
-      console.log("no jobs found");
+    
+          if (!companies || companies.length === 0) {
+      return res.status(404).json({ message: "No companies found" });
     }
+    
     res.status(200).json({ success: true, companies });
   } catch (error) {
     console.error("Error fetching companies:", error);
@@ -189,7 +195,6 @@ export const browseCompanies = async (req, res) => {
   }
 };
 
-// GET POSTED JOBS BY PROVIDER
 
 export const getAllJobsByProvider = async (req, res) => {
   try {

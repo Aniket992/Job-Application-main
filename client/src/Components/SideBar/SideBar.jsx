@@ -15,7 +15,7 @@ const SideBar = () => {
         <li>
           <NavLink exact className="navLinks" activeClassName="active" to={user.user.userType === "jobProvider" ? "/ProviderDashboard" : "/UserDashboard"}>
             <i className="pi pi-home" style={{ fontSize: "1.5rem", marginRight: "10px" }}></i>
-            Dashboard
+            {user.user.userType === "jobProvider" ? "My Jobs" : "My Applications"}
           </NavLink>
         </li>
         <li>
@@ -31,12 +31,15 @@ const SideBar = () => {
             {user.user.userType === "jobProvider" ? "Find Candidate" : "Browse Companies"}
           </NavLink>
         </li>
-        <li>
-          <NavLink className="navLinks" activeClassName="active" to={"/Messages"}>
-            <i className="pi pi-envelope" style={{ fontSize: "1.5rem", marginRight: "10px" }}></i>
-            Messages
-          </NavLink>
-        </li>
+        {user.user.userType === "jobSeeker" && (
+          <li>
+            <NavLink className="navLinks" activeClassName="active" to={"/RecommendedJobs"}>
+              <i className="pi pi-envelope" style={{ fontSize: "1.5rem", marginRight: "10px" }}></i>
+              Recommended Jobs
+            </NavLink>
+          </li>
+        )}
+
         <li>
           <NavLink className="navLinks" activeClassName="active" to={user.user.userType === "jobProvider" ? "/CompanyProfile" : "/UserProfile"}>
             <i className={user.user.userType === "jobProvider" ? "pi pi-building" : "pi pi-user-plus"} style={{ fontSize: "1.5rem", marginRight: "10px" }}></i>

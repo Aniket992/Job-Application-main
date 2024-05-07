@@ -50,6 +50,21 @@ const Dashboard = () => {
     setIsPopupOpen(false);
   };
 
+  const getStatusColor = (status) => {
+    switch (status.toLowerCase()) {
+      case 'applied':
+        return 'green';
+      case 'shortlisted':
+        return 'orange';
+      case 'interviewed':
+        return 'violet';
+      case 'hired':
+        return 'light green';
+      default:
+        return 'gray'; // Default color
+    }
+  };
+
   if (!user) {
     // User not logged in, redirect to login page
     navigate("/login");
@@ -61,7 +76,7 @@ const Dashboard = () => {
         <SideBar />
         <div className="values-container">
           <div className="page-header">
-            <h1>Dashboard</h1>
+            <h1>My Applications</h1>
             <div className="notification-navigation">
               <button onClick={handleClick}>Back to HomePage</button>
               <div className="notification">
@@ -73,14 +88,12 @@ const Dashboard = () => {
             <div className="applied-jobs">
               <h3>My Applications</h3>
               <div className="application-label">
-                  <p>Position:</p>
-                  <p>Company:</p>
-                  <p>Status:</p>
-                  <p>Job-details</p>
-                </div>
+                <p>Position:</p>
+                <p>Company:</p>
+                <p>Status:</p>
+                <p>Job-details</p>
+              </div>
               <div className="application-tracker">
-                
-
                 {applications &&
                   applications.map((application) => (
                     <div className="application" key={application._id}>
@@ -91,8 +104,10 @@ const Dashboard = () => {
                         <p>{application.jobDetails.company}</p>
                       </div>
                       <div className="application-element status">
-                        <p>{application.application.status}</p>
-                      </div>
+  <p style={{ backgroundColor: getStatusColor(application.application.status) }}>
+    {application.application.status}
+  </p>
+</div>
                       <button onClick={() => handleViewJob(application)}>
                         View Job
                       </button>

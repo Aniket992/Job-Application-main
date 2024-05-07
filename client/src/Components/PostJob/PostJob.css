@@ -1,6 +1,6 @@
 
  .post-job-container{
-    width: fit-content;
+    max-width: 80%;
     /* background-color: #6c7b6d; */
  }
   
@@ -45,6 +45,11 @@
     width: 150px;
   }
  
-  
+  .post-job-container label{
+   margin-bottom: 15px;
+   /* background-color: aqua; */
+   display: flex;
+   gap: 10px;
+}
  
   

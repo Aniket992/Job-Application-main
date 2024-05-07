@@ -17,6 +17,27 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "Name Is Require"],
     },
+    companyName:{
+      type: String,
+      default: "enter CompanyName",
+
+
+    },
+    companyLogo:{
+      type: String,
+      default: "logo",
+
+    },
+    text:{
+      type: String,
+      default: "text  admires you",
+
+    },
+    about:{
+      type: String,
+      default: "text describes you and your work contribution",
+
+    },
     email: {
       type: String,
       required: [true, " Email is Require"],

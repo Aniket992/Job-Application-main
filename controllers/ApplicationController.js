@@ -65,3 +65,38 @@ export const getApplicationController = async (req, res, next) => {
   }
 };
 
+export const getApplicants = async (req, res) => {
+  try {
+    console.log("applications");
+    const { jobId } = req.params;
+
+    const applicants = await ApplicationModel.find({
+      jobId: jobId
+    });
+
+    // Return the list of applicants
+    res.status(200).json({ applicants });
+  } catch (error) {
+    console.error("Error fetching applicants:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+export const updateStatus = async (req, res) => {
+  try {
+    console.log("hello");
+    const { applicationId } = req.params;
+    const { status } = req.body;
+
+    // Find the application by ID and update its status
+    const updatedApplication = await ApplicationModel.findByIdAndUpdate(
+      applicationId,
+      { status },
+      { new: true } // Return the updated document
+    );
+
+    res.status(200).json({ updatedApplication });
+  } catch (error) {
+    console.error("Error updating application status:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};

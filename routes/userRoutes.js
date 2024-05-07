@@ -9,10 +9,13 @@ import {
   getCandidate,
   getUserResumeByProvider,
   getUserResumeController,
+  updateAbout,
   updateEducation,
   updateExperience,
   updateLocation,
+  updateProvider,
   updateSkill,
+  updateText,
   uploadResume,
 } from "../controllers/userController.js";
 
@@ -39,6 +42,10 @@ router.post('/upload-resume',userAuth,upload.single('resume'),uploadResume);
 //GET RESUME By User
 router.get('/get-resume',userAuth,getUserResumeController);
 //GET USER by provider
-router.get('/get-candidates',userAuth,getCandidate)
+router.get('/get-candidate/:userId',getCandidate)
 router.get('/get-userResume',getUserResumeByProvider)
+router.put('/update-CompanyInfo', userAuth, updateProvider);
+router.put('/updateText',userAuth, updateText);
+router.put('/updateAbout',userAuth, updateAbout);
+
 export default router;
