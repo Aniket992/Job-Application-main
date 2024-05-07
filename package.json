@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "npm run server",
+    "start": "concurrently \"npm run server\" \"npm run start-client\"",
     "server": "node server.js",
     "start-client": "cd client && npm start"
   },
@@ -29,6 +29,7 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.0.3",
+    "path": "^0.12.7",
     "validator": "^13.11.0",
     "xss": "^1.0.14",
     "xss-clean": "^0.1.4"

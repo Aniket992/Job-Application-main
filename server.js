@@ -22,6 +22,8 @@ import errorMiddelware from "./middlewares/errorMiddleware.js";
 import userRoutes from './routes/userRoutes.js'
 import jobRoutes from './routes/jobRoutes.js'
 import ApplicationRoutes from './routes/ApplicationRoutes.js'
+import path from "path";
+
 // import bodyParser from "body-parser";
 //dot env config
 dotenv.config();
@@ -52,8 +54,13 @@ app.use("/api/v1/job",jobRoutes);
 app.use("/api/v1/application",ApplicationRoutes);
 
 // Define route for root URL
+
 app.get("/", (req, res) => {
-    res.send("Hello! The backend is running.");
+
+app.use(express.static(path.resolve(__dirname, "client", "build")));
+
+res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+
 });
 
 //validation middleware
