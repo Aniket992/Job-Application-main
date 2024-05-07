@@ -26,56 +26,43 @@ import ApplicationRoutes from './routes/ApplicationRoutes.js'
 //dot env config
 dotenv.config();
 
-
-
 //mongodb connection
 connectDB();
 
 //rest object
 const app = express();
 
-
-
 //middlewares
 app.use(helmet());
 app.use(xss());
 app.use(mongoSanitize());
 app.use(express.json());
-app.use(cors(
-
-    {
-        origin: ' https://server-indol-gamma.vercel.app/',
-
-        methods:["POST","GET","DELETE","PATCH","PUT"],
-
-        credentials: true
-    }
-
-
-));
+app.use(cors({
+    origin: 'https://server-indol-gamma.vercel.app/',
+    methods:["POST","GET","DELETE","PATCH","PUT"],
+    credentials: true
+}));
 app.use(morgan("dev"));
 
-
-// routes(
+// routes
 app.use("/api/v1/test", testRoutes);
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/job",jobRoutes);
 app.use("/api/v1/application",ApplicationRoutes);
 
-app.get("https://server-indol-gamma.vercel.app/", (req, res) => {
+// Define route for root URL
+app.get("/", (req, res) => {
     res.send("Hello! The backend is running.");
-  });
+});
 
-//validation middelware
+//validation middleware
 app.use(errorMiddelware);
 
-
 //port
-const PORT = process.env.PORT||8080
+const PORT = process.env.PORT||8080;
+
 // listen
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     console.log(`Node Server is running in ${process.env.DEV_MODE} on port no ${PORT}`.bgCyan.white);
-        
-    
 });
