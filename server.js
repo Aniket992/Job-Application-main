@@ -39,11 +39,11 @@ app.use(helmet());
 app.use(xss());
 app.use(mongoSanitize());
 app.use(express.json());
-app.use(cors({
-    origin: 'https://server-indol-gamma.vercel.app/',
-    methods:["POST","GET","DELETE","PATCH","PUT"],
-    credentials: true
-}));
+// app.use(cors({
+//     origin: 'https://server-indol-gamma.vercel.app/',
+//     methods:["POST","GET","DELETE","PATCH","PUT"],
+//     credentials: true
+// }));
 app.use(morgan("dev"));
 
 // routes
