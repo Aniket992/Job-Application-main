@@ -121,8 +121,8 @@ const Login = () => {
             </div>
             <div className="Register">
               <p>
-                Don't have an account? <h5 onClick={handleRegister}>Sign Up</h5>
-              </p>
+                Don't have an account? <span onClick={handleRegister}>Sign Up</span>
+                </p>
             </div>
           </div>
         </form>
