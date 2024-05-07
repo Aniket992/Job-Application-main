@@ -55,13 +55,13 @@ app.use("/api/v1/application",ApplicationRoutes);
 
 // Define route for root URL
 
-// app.get("/", (req, res) => {
+app.get("/", (req, res) => {
 
-// app.use(express.static(path.resolve(__dirname, "client", "build")));
+app.use(express.static(path.resolve(__dirname, "client", "build")));
 
-// res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 
-// });
+});
 
 //validation middleware
 app.use(errorMiddelware);
