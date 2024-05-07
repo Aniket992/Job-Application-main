@@ -44,7 +44,7 @@ app.use(express.json());
 app.use(cors(
 
     {
-        origin: 'https://server-git-main-aniket992s-projects.vercel.app',
+        origin: ' https://server-indol-gamma.vercel.app/',
 
         methods:["POST","GET","DELETE","PATCH","PUT"],
 
@@ -63,7 +63,7 @@ app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/job",jobRoutes);
 app.use("/api/v1/application",ApplicationRoutes);
 
-app.get("/", (req, res) => {
+app.get("https://server-indol-gamma.vercel.app/", (req, res) => {
     res.send("Hello! The backend is running.");
   });
 
