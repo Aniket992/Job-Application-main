@@ -34,16 +34,29 @@ connectDB();
 //rest object
 const app = express();
 
+
+const allowedOrigins = ['https://job-application-main.vercel.app'];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['POST', 'GET', 'OPTIONS', 'DELETE', 'PUT'],
+  allowedHeaders: ['Content-Type'],
+};
+
+app.use(cors(corsOptions));
+
+
 //middlewares
 app.use(helmet());
 app.use(xss());
 app.use(mongoSanitize());
 app.use(express.json());
-// app.use(cors({
-//     origin: 'https://server-indol-gamma.vercel.app/',
-//     methods:["POST","GET","DELETE","PATCH","PUT"],
-//     credentials: true
-// }));
 app.use(morgan("dev"));
 
 // routes
