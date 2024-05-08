@@ -34,22 +34,24 @@ connectDB();
 //rest object
 const app = express();
 
+app.use(cors());
 
-const allowedOrigins = ['https://job-application-main.vercel.app'];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['POST', 'GET', 'OPTIONS', 'DELETE', 'PUT'],
-  allowedHeaders: ['Content-Type'],
-};
+// const allowedOrigins = ['https://job-application-main.vercel.app'];
 
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   methods: ['POST', 'GET', 'OPTIONS', 'DELETE', 'PUT'],
+//   allowedHeaders: ['Content-Type'],
+// };
+
+// app.use(cors(corsOptions));
 
 
 //middlewares
