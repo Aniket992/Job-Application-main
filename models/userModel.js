@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema(
     },
     text:{
       type: String,
-      default: "text  admires you",
+      default: "write  thoughts which describes you most.",
 
     },
     about:{

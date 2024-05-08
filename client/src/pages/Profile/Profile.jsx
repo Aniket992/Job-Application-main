@@ -7,7 +7,7 @@ import { UserContext } from "../../MyContext";
 import Footer from "../../Components/Footer/Footer";
 import "primeicons/primeicons.css";
 import NotificationDisplay from "../../Components/Notificationdisplay/NotificationDisplay";
-import { BASE_URL } from '../../apiConfig'; 
+import { BASE_URL } from "../../apiConfig";
 
 const Profile = () => {
   const { user } = useContext(UserContext);
@@ -28,7 +28,8 @@ const Profile = () => {
   const handleSaveTextClick = async () => {
     setIsEditingText(false);
     try {
-      const response = await axios.put(`${BASE_URL}/api/v1/user/updateText`,
+      const response = await axios.put(
+        `${BASE_URL}/api/v1/user/updateText`,
         { text: text },
         {
           headers: {
@@ -98,15 +99,17 @@ const Profile = () => {
               <div className="main-info">
                 <div className="profile-cover">
                   <div className="bgtext">
-                  {isEditingText ? (
+                    {isEditingText ? (
                       <>
                         <input
                           type="text"
                           value={text}
                           onChange={handleTextChange}
                         />
-                        <div>{remainingChars} remaining characters</div>
-                        <button onClick={handleSaveTextClick}>Save</button>
+                        <div>
+                          {remainingChars} remaining characters{" "}
+                          <button onClick={handleSaveTextClick}>Save</button>
+                        </div>
                       </>
                     ) : (
                       <>
@@ -114,7 +117,7 @@ const Profile = () => {
                         <i
                           className="pi pi-pencil"
                           style={{
-                            fontSize: "1.5rem",
+                            fontSize: "1 rem",
                             marginRight: "10px",
                             cursor: "pointer",
                           }}
@@ -123,7 +126,7 @@ const Profile = () => {
                       </>
                     )}
                   </div>
-                  <div className="profile-image">AM</div>
+                  <div className="profile-image">{user.user.name}</div>
                   <div className="uservalue">
                     <h3>{user.user.name + user.user.lastName}</h3>
                     <p>{user.user.location}</p>
@@ -134,8 +137,8 @@ const Profile = () => {
                   <h1>About-Me:</h1>
                   {isEditingAbout ? (
                     <>
-                    <input 
-                    type="text"
+                      <input
+                        type="text"
                         value={about}
                         onChange={handleAboutChange}
                       />
@@ -147,7 +150,7 @@ const Profile = () => {
                       <i
                         className="pi pi-pencil"
                         style={{
-                          fontSize: "1.5rem",
+                          fontSize: "1 rem",
                           marginRight: "10px",
                           cursor: "pointer",
                         }}
@@ -189,7 +192,6 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-            
             </div>
           ) : (
             <div className="no-user">
