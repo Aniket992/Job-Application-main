@@ -5,6 +5,7 @@ import "./Dashboard.css";
 import NotificationDisplay from "../../Components/Notificationdisplay/NotificationDisplay";
 import axios from "axios";
 import { UserContext } from "../../MyContext";
+import { BASE_URL } from '../../apiConfig'; 
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
@@ -24,7 +25,7 @@ const Dashboard = () => {
           };
 
           const response = await axios.get(
-            "http://localhost:8080/api/v1/application/applications",
+            `${BASE_URL}/api/v1/application/applications`,
             { headers: headers }
           );
           // setApplications(response.data);

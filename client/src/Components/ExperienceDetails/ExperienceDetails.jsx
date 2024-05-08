@@ -3,6 +3,7 @@ import "./ExperienceDetails.css";
 import { UserContext } from "../../MyContext";
 import React, { useContext, useState } from "react";
 import { ToastContainer, Zoom, toast } from "react-toastify";
+import { BASE_URL } from '../../apiConfig'; 
 
 const ExperienceDetails = () => {
   const { user, setUser } = useContext(UserContext);
@@ -43,7 +44,7 @@ const ExperienceDetails = () => {
         "Content-Type": "application/json",
       };
       const response = await axios.put(
-        "/api/v1/user/update-experience",
+        `${BASE_URL}/api/v1/user/update-experience`,
         {
           experiences: [experience1, experience2],
         },

@@ -5,7 +5,7 @@ import sideImage from "../../Assets/Element.png";
 import google from "../../Assets/g.png";
 import {  ToastContainer, Zoom, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {BASE_URL} from "../../apiConfig"
 const Register = () => {
   const navigate = useNavigate(); // Initialize the navigate function
   const [formData, setFormData] = useState({
@@ -52,7 +52,7 @@ const Register = () => {
     }
     try {
       const response = await fetch(
-       `${window.location.origin}/api/v1/auth/register`,{
+       `${BASE_URL}/api/v1/auth/register`,{
           method: "POST",
           headers: {
             "Content-Type": "application/json",

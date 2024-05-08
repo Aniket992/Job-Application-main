@@ -7,6 +7,7 @@ import NotificationDisplay from "../../../Components/Notificationdisplay/Notific
 import SideBar from "../../../Components/SideBar/SideBar";
 import PostJob from "../../../Components/PostJob/PostJob";
 import "./PostJobs.css";
+import { BASE_URL } from '../../../apiConfig'; 
 
 const PostJobs = () => {
   const { user } = useContext(UserContext);
@@ -16,7 +17,7 @@ const PostJobs = () => {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get(`/api/v1/job/provider/${user.user._id}`);
+      const response = await axios.get(`${BASE_URL}/api/v1/job/provider/${user.user._id}`);
       setJobs(response.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);

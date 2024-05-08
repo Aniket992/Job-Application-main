@@ -2,6 +2,7 @@ import axios from "axios";
 import "./PostJob.css";
 import { UserContext } from "../../MyContext";
 import React, { useContext, useState, useEffect } from "react";
+import { BASE_URL } from '../../apiConfig'; 
 
 const PostJob = ({ onJobPosted }) => {
   const { user, setUser } = useContext(UserContext);
@@ -58,7 +59,7 @@ const PostJob = ({ onJobPosted }) => {
       };
       console.log(jobData);
       const response = await axios.post(
-        "/api/v1/job/post-job",
+        `${BASE_URL}/api/v1/job/post-job`,
         jobData,
 
         { headers: headers }

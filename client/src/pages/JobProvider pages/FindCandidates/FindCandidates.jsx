@@ -6,6 +6,7 @@ import "primeicons/primeicons.css";
 import NotificationDisplay from "../../../Components/Notificationdisplay/NotificationDisplay";
 import SideBar from "../../../Components/SideBar/SideBar";
 import "./FindCandidates.css";
+import { BASE_URL } from '../../../apiConfig'; 
 
 const FindCandidates = () => {
   const { user } = useContext(UserContext);
@@ -19,7 +20,7 @@ const FindCandidates = () => {
   const [applications, setApplications] = useState([]); 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get(`/api/v1/job/provider/${user.user._id}`);
+      const response = await axios.get(`${BASE_URL}/api/v1/job/provider/${user.user._id}`);
       setJobs(response.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);
@@ -36,7 +37,7 @@ const FindCandidates = () => {
     fetchCandidate(candidateId);
     setCandidateId(candidateId);
     try {
-      const response = await axios.get("/api/v1/user/get-userResume", {
+      const response = await axios.get(`${BASE_URL}/api/v1/user/get-userResume`, {
         responseType: 'blob',
         params: { candidateId } // Sending candidateId as query parameter
       });
@@ -50,7 +51,7 @@ const FindCandidates = () => {
 
   const fetchCandidate = async (userId) => {
     try {
-      const response = await axios.get(`/api/v1/user/get-candidate/${userId}`);
+      const response = await axios.get(`${BASE_URL}/api/v1/user/get-candidate/${userId}`);
       setCandidate(response.data); 
     } catch (error) {
       console.error("Error fetching candidate details:", error);
@@ -59,7 +60,7 @@ const FindCandidates = () => {
 
   const fetchApplicants = async (jobId) => {
     try {
-      const response = await axios.get(`/api/v1/application/applicants/${jobId}`);
+      const response = await axios.get(`${BASE_URL}/api/v1/application/applicants/${jobId}`);
       // Update applications state with fetched applicants and set the initial status to "Applied"
       const updatedApplications = response.data.applicants.map(application => ({
         ...application,
@@ -74,7 +75,7 @@ const FindCandidates = () => {
   const handleStatusChange = async (applicationId, newStatus) => {
     try {
       // Make API call to update the status
-      await axios.put(`/api/v1/application/statusUpdate/${applicationId}`, { status: newStatus });
+      await axios.put(`${BASE_URL}/api/v1/application/statusUpdate/${applicationId}`, { status: newStatus });
       // Update the status in the local state
       setApplications(prevApplications => prevApplications.map(application => {
         if (application._id === applicationId) {

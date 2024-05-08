@@ -3,6 +3,7 @@ import "./EducationDetails.css";
 import { UserContext } from "../../MyContext";
 import React, { useContext, useState } from "react";
 import { ToastContainer, Zoom, toast } from "react-toastify";
+import { BASE_URL } from '../../apiConfig'; 
 
 const EducationDetails = () => {
   const { user, setUser } = useContext(UserContext);
@@ -46,7 +47,7 @@ const EducationDetails = () => {
         "Content-Type": "application/json",
       };
       const response = await axios.put(
-        "/api/v1/user/update-education",
+        `${BASE_URL}/api/v1/user/update-education`,
         {
           educations: [education1, education2],
         },

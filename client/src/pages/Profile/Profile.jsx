@@ -7,6 +7,7 @@ import { UserContext } from "../../MyContext";
 import Footer from "../../Components/Footer/Footer";
 import "primeicons/primeicons.css";
 import NotificationDisplay from "../../Components/Notificationdisplay/NotificationDisplay";
+import { BASE_URL } from '../../apiConfig'; 
 
 const Profile = () => {
   const { user } = useContext(UserContext);
@@ -27,8 +28,7 @@ const Profile = () => {
   const handleSaveTextClick = async () => {
     setIsEditingText(false);
     try {
-      const response = await axios.put(
-        `${window.location.origin}/api/v1/user/updateText`,
+      const response = await axios.put(`${BASE_URL}/api/v1/user/updateText`,
         { text: text },
         {
           headers: {
@@ -51,7 +51,7 @@ const Profile = () => {
     setIsEditingAbout(false);
     try {
       const response = await axios.put(
-        `${window.location.origin}/api/v1/user/updateAbout`,
+        `${BASE_URL}/api/v1/user/updateAbout`,
         { about: about },
         {
           headers: {

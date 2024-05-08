@@ -7,7 +7,7 @@ import { UserContext } from "../../MyContext";
 import Footer from "../../Components/Footer/Footer";
 import "primeicons/primeicons.css";
 import NotificationDisplay from "../../Components/Notificationdisplay/NotificationDisplay";
-
+import { BASE_URL } from '../../apiConfig';
 const FindJobs = () => {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ const FindJobs = () => {
     const fetchJobs = async () => {
       try {
         const response = await axios.get(
-          `${window.location.origin}/api/v1/job/get-job`
+          `${BASE_URL}/api/v1/job/get-job`
         );
         console.log(response.data)
         setJobs(response.data.jobs);

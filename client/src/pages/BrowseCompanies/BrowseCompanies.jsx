@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./BrowseCompanies.css";
 import { UserContext } from "../../MyContext";
 import axios from "axios";
+import { BASE_URL } from '../../apiConfig'; 
 
 const BrowseCompanies = () => {
   const { user, setUser } = useContext(UserContext);
@@ -25,7 +26,7 @@ const BrowseCompanies = () => {
     const fetchCompanies = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8080/api/v1/job/companies"
+          `${BASE_URL}/api/v1/job/companies`
         );
         setCompanies(response.data.companies);
         setSelectedCompany(response.data.companies[0]);
@@ -38,7 +39,7 @@ const BrowseCompanies = () => {
 
   const fetchJobs = async (company) => {
     try {
-      const response = await axios.get(`/api/v1/job/provider/${company._id}`);
+      const response = await axios.get(`${BASE_URL}/api/v1/job/provider/${company._id}`);
     
       setJobs(response.data);
     } catch (error) {
@@ -51,7 +52,7 @@ const BrowseCompanies = () => {
   const handleApply = (jobId) => {
     user
     ? navigate("/Application", { state: { jobId } })
-      : window.confirm("Please login to apply") && navigate("/Login");
+      : window.confirm("Please login to apply") && navigate("/");
   };
 
   const handleCompanyClick = (company) => {

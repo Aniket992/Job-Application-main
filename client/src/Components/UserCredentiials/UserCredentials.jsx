@@ -4,12 +4,12 @@ import React, { useContext, useState, useEffect } from "react";
 import "./UserCredentials.css";
 import { ToastContainer, Zoom, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from '../../apiConfig'; 
 
 const UserCredentials = () => {
   const { user, setUser } = useContext(UserContext);
   const [newEmail, setNewEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const UserCredentials = () => {
         "Content-Type": "application/json",
       };
 
-      const response = await axios.delete("/api/v1/user/delete-account", {
+      const response = await axios.delete(`${BASE_URL}/api/v1/user/delete-account`, {
         headers: headers,
       });
 
@@ -54,7 +54,7 @@ const UserCredentials = () => {
         "Content-Type": "application/json",
       };
       const response = await axios.put(
-        "/api/v1/user/change-email",
+        `${BASE_URL}/api/v1/user/change-email`,
         { newEmail: newEmail },
         { headers: headers }
       );
@@ -77,7 +77,7 @@ const UserCredentials = () => {
         "Content-Type": "application/json",
       };
       const response = await axios.put(
-        "/api/v1/user/change-password",
+        `${BASE_URL}/api/v1/user/change-password`,
         {
           newPassword: newPassword,
         },

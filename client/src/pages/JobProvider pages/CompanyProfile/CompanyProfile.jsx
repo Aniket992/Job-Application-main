@@ -6,6 +6,7 @@ import "./CompanyProfile.css";
 import "primeicons/primeicons.css";
 import NotificationDisplay from "../../../Components/Notificationdisplay/NotificationDisplay";
 import SideBar from "../../../Components/SideBar/SideBar";
+import { BASE_URL } from '../../../apiConfig'; 
 
 const CompanyProfile = () => {
   const { user } = useContext(UserContext);
@@ -28,7 +29,7 @@ const CompanyProfile = () => {
     setIsEditingText(false);
     try {
       const response = await axios.put(
-        "http://localhost:8080/api/v1/user/updateText",
+        `${BASE_URL}/api/v1/user/updateText`,
         { text: text },
         {
           headers: {

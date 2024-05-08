@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../MyContext";
 import sideImage from "../../Assets/Element.png";
 import google from "../../Assets/g.png";
+import { BASE_URL } from '../../apiConfig'; 
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -32,7 +33,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch(`https://job-application-main.onrender.com/api/v1/auth/login`, {
+      const response = await fetch(`${BASE_URL}/api/v1/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

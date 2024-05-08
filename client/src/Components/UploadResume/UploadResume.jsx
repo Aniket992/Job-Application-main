@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import "./UploadResume.css"
 import { UserContext } from "../../MyContext";
 import axios from "axios";
+import { BASE_URL } from '../../apiConfig'; 
 
 const UploadResume = () => {
     const { user,setUser } = useContext(UserContext);
@@ -28,7 +29,7 @@ const UploadResume = () => {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           };
-          const response = await axios.post("http://localhost:8080/api/v1/user/upload-resume", formData, {
+          const response = await axios.post(`${BASE_URL}/api/v1/user/upload-resume`, formData, {
             headers: headers,
           });
           setUser({

@@ -6,6 +6,7 @@ import SideBar from '../../Components/SideBar/SideBar'
 import "./RecommendedJobs.css"
 import { useNavigate } from "react-router-dom";
 import NotificationDisplay from '../../Components/Notificationdisplay/NotificationDisplay';
+import { BASE_URL } from '../../apiConfig'; 
 
 const RecommendedJobs = () => {
     const { user } = useContext(UserContext);
@@ -20,7 +21,7 @@ const RecommendedJobs = () => {
     const fetchJobs = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/v1/job/get-job`
+          `${BASE_URL}/api/v1/job/get-job`
         );
         if (Array.isArray(user.user.skills)) {
             // Flatten the array if it's nested

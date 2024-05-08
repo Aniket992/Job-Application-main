@@ -4,6 +4,7 @@ import { UserContext } from "../../MyContext";
 import "./Application.css";
 import SideBar from "../../Components/SideBar/SideBar";
 import { useNavigate, useLocation } from "react-router-dom";
+import { BASE_URL } from '../../apiConfig'; 
 
 const Application = () => {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ const Application = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:8080/api/v1/application/upload",
+        `${BASE_URL}/api/v1/application/upload`,
         formData,
         { headers: headers }
       );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BASE_URL } from '../../apiConfig'; 
 
 const Applications = ({ match }) => {
   const [application, setApplication] = useState(null);
@@ -8,7 +9,7 @@ const Applications = ({ match }) => {
     const fetchApplication = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/v1/application/${match.params.id}`
+          `${BASE_URL}/api/v1/application/${match.params.id}`
         );
         setApplication(response.data);
       } catch (error) {
@@ -36,7 +37,7 @@ const Applications = ({ match }) => {
       <p>
         Resume:{" "}
         <a
-          href={`http://localhost:8080/uploads/${application.resume}`}
+          href={`${BASE_URL}/uploads/${application.resume}`}
           download
         >
           Download Resume

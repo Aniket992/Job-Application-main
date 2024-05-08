@@ -3,6 +3,7 @@ import { ToastContainer, Zoom, toast } from "react-toastify";
 import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../MyContext";
 import "./Skills.css";
+import { BASE_URL } from '../../apiConfig'; 
 
 const Skills = () => {
   const { user, setUser } = useContext(UserContext);
@@ -28,7 +29,7 @@ const Skills = () => {
         "Content-Type": "application/json",
       };
       const response = await axios.put(
-        "/api/v1/user/update-skill",
+        `${BASE_URL}/api/v1/user/update-skill`,
         { skill: newSkill },
         { headers: headers }
       );

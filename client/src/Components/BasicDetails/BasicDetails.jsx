@@ -9,6 +9,7 @@ import Skills from "../Skills/Skills";
 import ShowResume from "../ShowResume/ShowResume";
 import UploadResume from "../UploadResume/UploadResume";
 import ProviderProfile from "../ProviderProfile/ProviderProfile";
+import { BASE_URL } from '../../apiConfig'; 
 
 const BasicDetails = () => {
   const { user, setUser } = useContext(UserContext);
@@ -30,7 +31,7 @@ const BasicDetails = () => {
         "Content-Type": "application/json",
       };
       const response = await axios.put(
-        "/api/v1/user/update-location",
+        `${BASE_URL}/api/v1/user/update-location`,
         { location: newLocation },
         { headers: headers }
       );

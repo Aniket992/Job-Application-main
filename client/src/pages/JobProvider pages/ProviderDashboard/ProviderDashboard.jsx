@@ -6,8 +6,8 @@ import "primeicons/primeicons.css";
 import NotificationDisplay from "../../../Components/Notificationdisplay/NotificationDisplay";
 import SideBar from "../../../Components/SideBar/SideBar";
 import "./ProviderDashboard.css";
-import PostJobs from "../PostJobs/PostJobs";
-import PostJob from "../../../Components/PostJob/PostJob";
+import { BASE_URL } from '../../../apiConfig'; 
+
 const ProviderDashboard = () => {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const ProviderDashboard = () => {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get(`/api/v1/job/provider/${user.user._id}`);
+      const response = await axios.get(`${BASE_URL}/api/v1/job/provider/${user.user._id}`);
       setJobs(response.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);

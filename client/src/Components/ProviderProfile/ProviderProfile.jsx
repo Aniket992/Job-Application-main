@@ -3,6 +3,7 @@ import React, { useContext, useState, useEffect } from "react";
 import "./ProviderProfile.css";
 import { ToastContainer, Zoom, toast } from "react-toastify";
 import axios from "axios";
+import { BASE_URL } from '../../apiConfig'; 
 
 const ProviderProfile = () => {
   const { user, setUser } = useContext(UserContext);
@@ -32,7 +33,7 @@ const ProviderProfile = () => {
         "Content-Type": "application/json",
       };
       const response = await axios.put(
-        "/api/v1/user/update-location",
+        `${BASE_URL}/api/v1/user/update-location`,
         { location: newLocation },
         { headers: headers }
       );
@@ -57,7 +58,7 @@ const ProviderProfile = () => {
         "Content-Type": "application/json",
       };
       const response = await axios.put(
-        "/api/v1/user/update-CompanyInfo",
+        `${BASE_URL}/api/v1/user/update-CompanyInfo`,
         { logo: logo, companyName: companyName },
         { headers: headers }
       );
