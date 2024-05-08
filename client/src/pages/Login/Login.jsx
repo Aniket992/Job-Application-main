@@ -32,7 +32,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch(`${window.location.origin}/api/v1/auth/login`, {
+      const response = await fetch(`https://job-application-main.onrender.com/api/v1/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

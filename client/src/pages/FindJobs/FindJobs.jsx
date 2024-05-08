@@ -31,7 +31,7 @@ const FindJobs = () => {
     const fetchJobs = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/v1/job/get-job`
+          `${window.location.origin}/api/v1/job/get-job`
         );
         console.log(response.data)
         setJobs(response.data.jobs);

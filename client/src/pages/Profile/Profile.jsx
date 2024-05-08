@@ -28,7 +28,7 @@ const Profile = () => {
     setIsEditingText(false);
     try {
       const response = await axios.put(
-        "http://localhost:8080/api/v1/user/updateText",
+        `${window.location.origin}/api/v1/user/updateText`,
         { text: text },
         {
           headers: {
@@ -51,7 +51,7 @@ const Profile = () => {
     setIsEditingAbout(false);
     try {
       const response = await axios.put(
-        "http://localhost:8080/api/v1/user/updateAbout",
+        `${window.location.origin}/api/v1/user/updateAbout`,
         { about: about },
         {
           headers: {
