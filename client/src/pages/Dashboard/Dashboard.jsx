@@ -5,7 +5,8 @@ import "./Dashboard.css";
 import NotificationDisplay from "../../Components/Notificationdisplay/NotificationDisplay";
 import axios from "axios";
 import { UserContext } from "../../MyContext";
-import { BASE_URL } from '../../apiConfig'; 
+import { BASE_URL } from "../../apiConfig";
+import Footer from "../../Components/Footer/Footer";
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
@@ -46,6 +47,7 @@ const Dashboard = () => {
   const handleViewJob = (job) => {
     setSelectedJob(job);
     setIsPopupOpen(true);
+    console.log(selectedJob);
   };
   const handleClosePopup = () => {
     setIsPopupOpen(false);
@@ -53,22 +55,22 @@ const Dashboard = () => {
 
   const getStatusColor = (status) => {
     switch (status.toLowerCase()) {
-      case 'applied':
-        return 'green';
-      case 'shortlisted':
-        return 'orange';
-      case 'interviewed':
-        return 'violet';
-      case 'hired':
-        return 'light green';
+      case "applied":
+        return "green";
+      case "shortlisted":
+        return "orange";
+      case "interviewed":
+        return "violet";
+      case "hired":
+        return "light green";
       default:
-        return 'gray'; // Default color
+        return "gray"; // Default color
     }
   };
 
   if (!user) {
     // User not logged in, redirect to login page
-    navigate("/login");
+    navigate("/");
   }
 
   return (
@@ -87,7 +89,6 @@ const Dashboard = () => {
           </div>
           {user.user.userType === "jobSeeker" && (
             <div className="applied-jobs">
-              <h3>My Applications</h3>
               <div className="application-label">
                 <p>Position:</p>
                 <p>Company:</p>
@@ -105,11 +106,17 @@ const Dashboard = () => {
                         <p>{application.jobDetails.company}</p>
                       </div>
                       <div className="application-element status">
-  <p style={{ backgroundColor: getStatusColor(application.application.status) }}>
-    {application.application.status}
-  </p>
-</div>
-                      <button onClick={() => handleViewJob(application)}>
+                        <p
+                          style={{
+                            backgroundColor: getStatusColor(
+                              application.application.status
+                            ),
+                          }}
+                        >
+                          {application.application.status}
+                        </p>
+                      </div>
+                      <button onClick={() => handleViewJob(application.jobDetails)}>
                         View Job
                       </button>
                     </div>
@@ -117,9 +124,53 @@ const Dashboard = () => {
               </div>
             </div>
           )}
-         
         </div>
       </div>
+      {isPopupOpen && (
+        <div className="popup-container">
+
+<div className="popup">
+            <div className="popup-item">
+              <p1>Company name:</p1>
+              <p>{selectedJob.company}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Position:</p1>
+              <p>{selectedJob.position}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Work Location:</p1>
+              <p>{selectedJob.workLocation}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Work Type:</p1>
+              <p>{selectedJob.workType}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Salary:</p1>
+              <p>{selectedJob.salary}</p>
+            </div>
+            <div className="popup-item">
+              <p1> Work Details:</p1>
+              <p>{selectedJob.jobDescription}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Eligibility:</p1>
+              <p>{selectedJob.eligibility}</p>
+            </div>{" "}
+            <div className="popup-item">
+              <p1>Perks:</p1>
+              <p>{selectedJob.perks}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Skills required:</p1>
+              <p>{selectedJob.skills}</p>
+            </div>
+            <button onClick={handleClosePopup}>Close</button>
+          </div>
+        </div>
+      )}
+      <Footer />
     </>
   );
 };

@@ -112,27 +112,43 @@ const RecommendedJobs = () => {
         </div>
         {isPopupOpen && (
         <div className="popup-container">
-          <div className="popup">
-            <h2>Job Description</h2>
-            <h3>Company name:</h3>
-            <p>{selectedJob.company}</p>
-            <h3>Position:</h3>
-            <p>{selectedJob.position}</p>
-            <h3>Work Location</h3>
-            <p>{selectedJob.workLocation}</p>
-            <h3>Work Type:</h3>
-            <p>{selectedJob.workType}</p>
-            <h3>Salary:</h3>
-            <p>{selectedJob.salary}</p>
-            <h3> Work Details:</h3>
-            <p>{selectedJob.jobDescription}</p>
-            <h3>Eligibility</h3>
-            <p>{selectedJob.eligibility}</p>
-            <p>{selectedJob.skills}</p>
-
-            <h3>Perks:</h3>
-            <p>{selectedJob.perks}</p>
-
+         <div className="popup">
+            <div className="popup-item">
+              <p1>Company name:</p1>
+              <p>{selectedJob.company}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Position:</p1>
+              <p>{selectedJob.position}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Work Location:</p1>
+              <p>{selectedJob.workLocation}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Work Type:</p1>
+              <p>{selectedJob.workType}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Salary:</p1>
+              <p>{selectedJob.salary}</p>
+            </div>
+            <div className="popup-item">
+              <p1> Work Details:</p1>
+              <p>{selectedJob.jobDescription}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Eligibility:</p1>
+              <p>{selectedJob.eligibility}</p>
+            </div>{" "}
+            <div className="popup-item">
+              <p1>Perks:</p1>
+              <p>{selectedJob.perks}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Skills required:</p1>
+              <p>{selectedJob.skills}</p>
+            </div>
             <button onClick={handleClosePopup}>Close</button>
           </div>
         </div>)}

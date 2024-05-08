@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./BrowseCompanies.css";
 import { UserContext } from "../../MyContext";
 import axios from "axios";
-import { BASE_URL } from '../../apiConfig'; 
+import { BASE_URL } from "../../apiConfig";
 
 const BrowseCompanies = () => {
   const { user, setUser } = useContext(UserContext);
@@ -25,10 +25,8 @@ const BrowseCompanies = () => {
   useEffect(() => {
     const fetchCompanies = async () => {
       try {
-        const response = await axios.get(
-          `${BASE_URL}/api/v1/job/companies`
-        );
-        setCompanies(response.data.companies);
+        const response = await axios.get(`${BASE_URL}/api/v1/job/companies`);
+        setCompanies(response.data.companies.reverse());
         setSelectedCompany(response.data.companies[0]);
       } catch (error) {
         console.error("Error fetching companies:", error);
@@ -39,8 +37,10 @@ const BrowseCompanies = () => {
 
   const fetchJobs = async (company) => {
     try {
-      const response = await axios.get(`${BASE_URL}/api/v1/job/provider/${company._id}`);
-    
+      const response = await axios.get(
+        `${BASE_URL}/api/v1/job/provider/${company._id}`
+      );
+
       setJobs(response.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);
@@ -51,7 +51,7 @@ const BrowseCompanies = () => {
 
   const handleApply = (jobId) => {
     user
-    ? navigate("/Application", { state: { jobId } })
+      ? navigate("/Application", { state: { jobId } })
       : window.confirm("Please login to apply") && navigate("/");
   };
 
@@ -98,6 +98,9 @@ const BrowseCompanies = () => {
                   className="company-card"
                   onClick={() => handleCompanyClick(company)}
                 >
+                  <div className="img-div">
+                    <img src={company.logo} alt="logo" />
+                  </div>
                   <h2>{company.name}</h2>
                   <p>{company.email}</p>
                 </div>
@@ -120,27 +123,29 @@ const BrowseCompanies = () => {
                         <p>No jobs found</p>
                       ) : (
                         <div className="Bjob-posted">
-                          
                           {jobs.map((job) => (
-                         
                             <div className="job-cards" key={job._id}>
-                            <div className="img-div">
-                              <img src={job.logo} alt="logo" />
-                            </div>
-                            <div className="jobInfo">
-                              <h4>Company: {job.company}</h4>
-                              <p>Job Role: {job.position}</p>
-                              <p>Work Type: {job.workType}</p>
-                            </div>
-                            <div className="apply">
-                              <button onClick={() => handleApply(job._id)}>Apply</button>
-                              <div className="job-description">
-                                <button onClick={() => handleDetailsClick(job)}>
-                                  Details
+                              <div className="img-div">
+                                <img src={job.logo} alt="logo" />
+                              </div>
+                              <div className="jobInfo">
+                                <h4>Company: {job.company}</h4>
+                                <p>Job Role: {job.position}</p>
+                                <p>Work Type: {job.workType}</p>
+                              </div>
+                              <div className="apply">
+                                <button onClick={() => handleApply(job._id)}>
+                                  Apply
                                 </button>
+                                <div className="job-description">
+                                  <button
+                                    onClick={() => handleDetailsClick(job)}
+                                  >
+                                    Details
+                                  </button>
+                                </div>
                               </div>
                             </div>
-                          </div>
                           ))}
                         </div>
                       )}
@@ -155,26 +160,42 @@ const BrowseCompanies = () => {
       {isPopupOpen && (
         <div className="popup-container">
           <div className="popup">
-            <h2>Job Description</h2>
-            <h3>Company name:</h3>
-            <p>{selectedJob.company}</p>
-            <h3>Position:</h3>
-            <p>{selectedJob.position}</p>
-            <h3>Work Location</h3>
-            <p>{selectedJob.workLocation}</p>
-            <h3>Work Type:</h3>
-            <p>{selectedJob.workType}</p>
-            <h3>Salary:</h3>
-            <p>{selectedJob.salary}</p>
-            <h3> Work Details:</h3>
-            <p>{selectedJob.jobDescription}</p>
-            <h3>Eligibility</h3>
-            <p>{selectedJob.eligibility}</p>
-            <h3>Perks:</h3>
-            <p>{selectedJob.perks}</p>
-            <h3>Application Status</h3>
-            <p>{selectedJob.status}</p>
-
+            <div className="popup-item">
+              <p1>Company name:</p1>
+              <p>{selectedJob.company}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Position:</p1>
+              <p>{selectedJob.position}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Work Location:</p1>
+              <p>{selectedJob.workLocation}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Work Type:</p1>
+              <p>{selectedJob.workType}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Salary:</p1>
+              <p>{selectedJob.salary}</p>
+            </div>
+            <div className="popup-item">
+              <p1> Work Details:</p1>
+              <p>{selectedJob.jobDescription}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Eligibility:</p1>
+              <p>{selectedJob.eligibility}</p>
+            </div>{" "}
+            <div className="popup-item">
+              <p1>Perks:</p1>
+              <p>{selectedJob.perks}</p>
+            </div>
+            <div className="popup-item">
+              <p1>Skills required:</p1>
+              <p>{selectedJob.skills}</p>
+            </div>
             <button onClick={handleClosePopup}>Close</button>
           </div>
         </div>

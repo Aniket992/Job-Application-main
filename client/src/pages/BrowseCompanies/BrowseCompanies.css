@@ -33,7 +33,11 @@
 
     }
    .company-card{
-    background-color: #3b3f4b;
+    align-items: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #3b3f4b; */
     border: 2px solid wheat;
     width: 100%;
     text-align: center;
@@ -66,9 +70,7 @@
     height: 63vh;
     overflow: scroll;
    }
-   .Bjob-posted-container{
-    /* background-color: rgb(41, 96, 145); */
-   }
+   
    .Bjob-posted{
     /* background-color: aquamarine; */
     display: flex;

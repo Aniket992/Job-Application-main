@@ -9,33 +9,28 @@
 .applied-jobs{
   color: wheat;
   /* background-color: aliceblue; */
- 
     margin: 20px;
     padding: 10px;
     border: 1.5px solid rgb(138, 128, 128);
     height: 85vh;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
 }
 .application-tracker{
   overflow: scroll;
   scroll-behavior:smooth;
   scrollbar-width: none;
-  /* background-color: aqua; */
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  /* height: 90%; */
+  height: 90%;
 }
 
 
 .application {
+  text-align: center;
+  align-items: center;
   border-radius: 5px;
   border: 2px solid gray;
   display: flex;
   width: 90%;
   margin:auto;
+  margin-bottom: 20px;
   padding: 10px;
   justify-content:space-between;
   
@@ -46,7 +41,6 @@
   border: none;
   border-radius: 5px;
   background-color: rgb(41, 70, 232);
-  align-self: flex-end;
   color: rgb(235, 235, 235);
 }
  .application-element{
@@ -60,6 +54,7 @@
   border-radius: 10px;
  }
 .application-label{
+  /* background-color: yellowgreen; */
  font-size: large;
  font-weight: 500;
   display: flex;
@@ -73,3 +68,6 @@
 }
 
 
+.application-tracker p{
+  margin-bottom: 0;
+}
