@@ -30,7 +30,7 @@ const Register = () => {
 
   const notify = () => {
     toast.success('Account created successfully. Redirecting to login page...', {
-      onClose: () => navigate("/") // Redirect to login page after toast closes
+      // onClose: () => navigate("/") // Redirect to login page after toast closes
     });
   };
 

@@ -57,10 +57,11 @@ const ProviderDashboard = () => {
               <p>No jobs found</p>
             ) : (
               <div className="job-posted">
-                                <h2>{jobs.length}</h2>
+                             <h2>Total job posts:{jobs.length}</h2>
 
                 {jobs.map((job) => (
                   <div key={job._id} className="job-item">
+                    <img src={job.logo} alt="" />
                     <h5>{job.position}</h5>
                     <p>Salary: {job.salary}</p>
                     <div className="button-container">

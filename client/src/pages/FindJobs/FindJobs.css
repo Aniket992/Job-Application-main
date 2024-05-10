@@ -128,7 +128,7 @@ label {
 .img-div img{
   
   max-width: 90px;
-  max-height: 90px;
+  max-height: 100px;
   border-radius: 50px;
   background-color: #ffffff;
 }

@@ -1,0 +1,65 @@
+.job-posted{
+text-align: center;
+}
+.job-posted{
+    /* background-color: antiquewhite; */
+    margin: 10px;
+    border-radius: 5px ;
+    overflow: scroll;
+    scrollbar-width: none;
+    max-height: 650px;
+    width: 100%;
+}
+.job-posted-container{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+.job-item{
+    border-radius: 5px;
+    border: 2px solid gray;
+    /* background-color: aqua; */
+    margin: 10px;
+    padding: 10px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+.job-item img{
+    width: 100px;
+}
+.job-item p{
+    font-weight: 100;
+    font-size: small;
+    margin: 5px;
+}
+
+.job-item button{
+    justify-content: center;
+    display: flex;
+    width: 100px;
+    height: fit-content;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    /* align-self:flex-end; */
+    right: 0;
+    bottom: 0;
+
+}
+.job-item h5{
+    width: 30%;
+}
+.button-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
