@@ -41,13 +41,19 @@ const Navbar = () => {
       <div className="left">
         <div className="logo" onClick={handleLogo}>
           <img src={logo} alt="" />
-          <h1>Recruitify</h1>
+          <h1>ecrutify</h1>
         </div>
         <div className="menu">
           <li>
+            {user.user.userType === "jobProvider"? (
+               <Link className="Link" to={"/PostJobs"}>
+               Post Jobs
+             </Link>
+            ):(
             <Link className="Link" to={"/FindJobs"}>
               Find Jobs
             </Link>
+            )}
           </li>
           <li>
             <Link className="Link" to={"/BrowseCompanies"}>

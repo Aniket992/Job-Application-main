@@ -4,6 +4,7 @@ import "./HelpCenter.css";
 import SideBar from "../../Components/SideBar/SideBar";
 import NotificationDisplay from "../../Components/Notificationdisplay/NotificationDisplay";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Components/Footer/Footer";
 
 const HelpCenter = () => {
   const navigate = useNavigate();
@@ -84,6 +85,7 @@ const HelpCenter = () => {
     navigate("/Home");
   };
   return (
+    <>
     <div className="help-center">
       <SideBar />
       <div className="help-container">
@@ -125,6 +127,8 @@ const HelpCenter = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

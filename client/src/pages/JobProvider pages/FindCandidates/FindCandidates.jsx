@@ -7,6 +7,7 @@ import NotificationDisplay from "../../../Components/Notificationdisplay/Notific
 import SideBar from "../../../Components/SideBar/SideBar";
 import "./FindCandidates.css";
 import { BASE_URL } from '../../../apiConfig'; 
+import Footer from "../../../Components/Footer/Footer";
 
 const FindCandidates = () => {
   const { user } = useContext(UserContext);
@@ -189,6 +190,7 @@ const FindCandidates = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

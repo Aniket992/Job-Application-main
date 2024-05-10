@@ -219,9 +219,10 @@ const FindJobs = () => {
                       <p>Work Type: {job.workType}</p>
                     </div>
                     <div className="apply">
-                      <button onClick={() => handleApply(job._id)}>
-                        Apply
-                      </button>
+                    {user.user.userType !== "jobProvider" && (
+  <button onClick={() => handleApply(job._id)}>Apply</button>
+)}
+
                       <div className="job-description">
                         <button onClick={() => handleDetailsClick(job)}>
                           Details

@@ -8,6 +8,7 @@ import "./Setting.css";
 import { UserContext } from "../../MyContext";
 import ShowResume from '../../Components/ShowResume/ShowResume';
 import ProviderProfile from '../../Components/ProviderProfile/ProviderProfile';
+import Footer from '../../Components/Footer/Footer';
 
 const Setting = () => {
   const { user } = useContext(UserContext);
@@ -55,7 +56,7 @@ const Setting = () => {
   };
   
 
-  return (
+  return (<>
     <div className='setting'>
       <SideBar />
       <div className="setting-container">
@@ -82,6 +83,8 @@ const Setting = () => {
       </div>
 
     </div>
+    <Footer/>
+    </>
   );
 };
 

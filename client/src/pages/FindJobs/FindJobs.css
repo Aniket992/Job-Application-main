@@ -143,6 +143,15 @@ label {
   background-color: #6d5e5e;
 
 }
+.jobInfo{
+  overflow:scroll;
+  scrollbar-width: none;
+text-align: center;}
+.apply{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .apply button {
   margin-bottom: 10px;
   border: none;

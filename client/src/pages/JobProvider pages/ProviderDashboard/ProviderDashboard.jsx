@@ -7,6 +7,7 @@ import NotificationDisplay from "../../../Components/Notificationdisplay/Notific
 import SideBar from "../../../Components/SideBar/SideBar";
 import "./ProviderDashboard.css";
 import { BASE_URL } from '../../../apiConfig'; 
+import Footer from "../../../Components/Footer/Footer";
 
 const ProviderDashboard = () => {
   const { user } = useContext(UserContext);
@@ -75,6 +76,7 @@ const ProviderDashboard = () => {
         </div>
       
       </div>
+      <Footer/>
     </>
   );
 };

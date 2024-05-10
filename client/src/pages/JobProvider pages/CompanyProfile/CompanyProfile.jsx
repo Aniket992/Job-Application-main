@@ -7,9 +7,10 @@ import "primeicons/primeicons.css";
 import NotificationDisplay from "../../../Components/Notificationdisplay/NotificationDisplay";
 import SideBar from "../../../Components/SideBar/SideBar";
 import { BASE_URL } from '../../../apiConfig'; 
+import Footer from "../../../Components/Footer/Footer";
 
 const CompanyProfile = () => {
-  const { user } = useContext(UserContext);
+  const { user ,setUser} = useContext(UserContext);
   const navigate = useNavigate();
   const [isEditingText, setIsEditingText] = useState(false);
   const [text, setText] = useState(user.user.text);
@@ -39,6 +40,8 @@ const CompanyProfile = () => {
         }
       );
       console.log("Text updated:", response.data);
+      setUser({ ...user, user: { ...user.user,text: text } });
+
     } catch (error) {
       console.error("Error updating text:", error);
     }
@@ -62,6 +65,8 @@ const CompanyProfile = () => {
         }
       );
       console.log("About updated:", response.data);
+      setUser({ ...user, user: { ...user.user, about: about } });
+
     } catch (error) {
       console.error("Error updating about:", error);
     }
@@ -172,6 +177,7 @@ const CompanyProfile = () => {
           )}
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

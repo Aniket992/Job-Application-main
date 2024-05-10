@@ -10,7 +10,7 @@ import NotificationDisplay from "../../Components/Notificationdisplay/Notificati
 import { BASE_URL } from "../../apiConfig";
 
 const Profile = () => {
-  const { user } = useContext(UserContext);
+  const { user ,setUser} = useContext(UserContext);
   const navigate = useNavigate();
   const [isEditingText, setIsEditingText] = useState(false);
   const [text, setText] = useState(user.user.text);
@@ -39,6 +39,8 @@ const Profile = () => {
         }
       );
       console.log("Text updated:", response.data);
+      setUser({ ...user, user: { ...user.user,text: text } });
+
     } catch (error) {
       console.error("Error updating text:", error);
     }
@@ -62,6 +64,8 @@ const Profile = () => {
         }
       );
       console.log("About updated:", response.data);
+      setUser({ ...user, user: { ...user.user, about: about } });
+
     } catch (error) {
       console.error("Error updating about:", error);
     }

@@ -19,21 +19,30 @@
 
 /* Logo */
 .logo {
-  background-color: greenyellow;
+  border: 1px dashed gray;
   border-radius: 5px;
-  padding: 0px 2px;
+  background-color: #eeeeee;
+  padding: 0px 2px 0px 0px;
   cursor: pointer;
   text-decoration: none;
-  display: flex; /* Flex layout for logo */
-  align-items: center; /* Align items vertically in the center */
+  display: flex; 
+  align-items: center; 
+  animation: color-change 2s infinite;
+}
+@keyframes color-change {
+  0% { background-color: #00fff7; }
+  50% { background-color: rgb(248, 168, 239); }
+  100% { background-color: #00fff7; }
 }
 .logo img {
   width: 50px;
 }
 
 .logo h1 {
-  color: #727ff1;
-  margin-left: 10px; /* Space between logo image and text */
+  line-height: 0;
+  margin-bottom: 0;
+  background-color: white;
+  color: #1f31d3;
 }
 
 /* Menu */

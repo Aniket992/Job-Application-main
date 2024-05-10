@@ -8,6 +8,7 @@ import SideBar from "../../../Components/SideBar/SideBar";
 import PostJob from "../../../Components/PostJob/PostJob";
 import "./PostJobs.css";
 import { BASE_URL } from '../../../apiConfig'; 
+import Footer from "../../../Components/Footer/Footer";
 
 const PostJobs = () => {
   const { user } = useContext(UserContext);
@@ -57,31 +58,12 @@ const PostJobs = () => {
 
           <div className="job-posted-container">
 
-            {/* {isLoading ? (
-              <p>Loading...</p>
-            ) : jobs.length === 0 ? (
-              <p>No jobs found</p>
-            ) : (
-              <div className="job-posted">
-                                <h2>{jobs.length}</h2>
-
-                {jobs.map((job) => (
-                  <div key={job._id} className="job-item">
-                    <h5>{job.position}</h5>
-                    <p>Salary: {job.salary}</p>
-                    <div className="button-container">
-                    <button>Update job</button>
-                    <button>delete job</button>
-                      </div> 
-                    
-                  </div>
-                ))}
-              </div>
-            )} */}
+          
             <PostJob onJobPosted={handleJobPosted} />
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

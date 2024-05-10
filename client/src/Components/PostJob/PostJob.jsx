@@ -82,7 +82,7 @@ const PostJob = ({ onJobPosted }) => {
           <input
             type="text"
             name="logo"
-            value={jobData.logo}
+            value={user.user.companyLogo || jobData.logo}
             onChange={handleChange}
           />
         </label>
@@ -91,7 +91,7 @@ const PostJob = ({ onJobPosted }) => {
           <input
             type="text"
             name="company"
-            value={jobData.company}
+            value={user.user.companyName || jobData.company}
             onChange={handleChange}
           />
         </label>
