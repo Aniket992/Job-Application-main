@@ -13,15 +13,15 @@
         color: wheat;
         display: flex;
         justify-content: space-evenly;
-        max-height: 90vh;
+        height: 90vh;
             /* background-color: red; */
 
     }
     .company-list{
+        /* background-color: aliceblue; */
         scrollbar-width: none;
         border-radius: 5px ;
         overflow: auto;
-        /* height: 90%; */
          border: 2px solid gray;
          padding: 10px;
          margin: 10px;
@@ -45,29 +45,34 @@
    }
    .company-info{
     width: 100%;
-    height:fit-content;
-    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    background-color: #202430;
+    max-height: 100vh;   
 
    }
    .company-description{
-    width: 90%;
-    /* background-color: aliceblue; */
-    height: 90%;
-    padding: 10px;
     text-align: center;
-    border-radius: 5px;
-    border: 2px solid gray;
-    margin: 10px;
+    scrollbar-width: none;
+    border-radius: 5px ;
+    overflow: auto;
+     border: 2px solid gray;
+     /* padding: 10px; */
+     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 10px;
+    height: 90vh;
    }
    .job-provider-container{
     color: wheat;
    }
    .BopeningJobs{
-    border: 2px solid gray;
+    /* border: 2px solid gray; */
     border-radius: 5px;
     /* background-color: red; */
     scrollbar-width: none;
-    height: 63vh;
     overflow: scroll;
    }
    

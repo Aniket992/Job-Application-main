@@ -101,19 +101,23 @@ const BrowseCompanies = () => {
                   onClick={() => handleCompanyClick(company)}
                 >
                   <div className="img-div">
-                    <img src={company.logo} alt="logo" />
+                    <img src={company.companyLogo} alt="logo" />
                   </div>
-                  <h2>{company.name}</h2>
+                  <div className="jobInfo">
+                  <h2>{company.companyName}</h2>
                   <p>{company.email}</p>
+                  </div>
+                  <p>{company.location}</p>
+
                 </div>
               ))}
             </div>
             <div className="company-info">
               {selectedCompany && (
                 <div className="company-description">
-                  <h2>Company Name:</h2>
+                  <h2>Company Name:{selectedCompany.companyName}</h2>
                   <h3>Hr Name: {selectedCompany.name}</h3>
-                  <p>{selectedCompany.description}</p>
+                  <p>{selectedCompany.about}</p>
                   <p>{selectedCompany.email}</p>
 
                   <p>Openings</p>

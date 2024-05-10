@@ -150,10 +150,12 @@ text-align: center;}
 .apply{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  /* background-color: red; */
+  align-items: center;
 }
 .apply button {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   border: none;
   background-color: #4640de;
   padding: 10px;
