@@ -6,6 +6,7 @@ import "./BrowseCompanies.css";
 import { UserContext } from "../../MyContext";
 import axios from "axios";
 import { BASE_URL } from "../../apiConfig";
+import Footer from "../../Components/Footer/Footer";
 
 const BrowseCompanies = () => {
   const { user, setUser } = useContext(UserContext);
@@ -71,6 +72,7 @@ const BrowseCompanies = () => {
   };
 
   return (
+    <>
     <div className="BrowseCompanies">
       <SideBar />
       <div className="BrowseCompanies-container">
@@ -156,6 +158,7 @@ const BrowseCompanies = () => {
             </div>
           </div>
         )}
+
       </div>
       {isPopupOpen && (
         <div className="popup-container">
@@ -200,7 +203,11 @@ const BrowseCompanies = () => {
           </div>
         </div>
       )}
+
     </div>
+    <Footer/>
+
+    </>
   );
 };
 

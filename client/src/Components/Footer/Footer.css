@@ -1,31 +1,33 @@
-/* Footer Container */
 .footer {
   
     background-color: #333; 
     color: #fff; 
-    padding: 50px 0;
+    padding: 50px 20px;
+    justify-content: center;
   }
   
-  /* Footer Content */
   .footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    /* background-color: aqua; */
   }
   
-  /* Footer Section */
   .footer-section {
+    /* background-color: red; */
     flex: 1 1 300px;
     margin-bottom: 20px;
   }
+   .about{
+    text-align: center;
+/* background-color: pink; */
+  }
   
-  /* Footer Section Heading */
   .footer-section h2 {
     font-size: 1.2rem;
     margin-bottom: 10px;
   }
   
-  /* Footer Links */
   .footer-section ul {
     list-style: none;
     padding: 0;
@@ -36,19 +38,26 @@
   }
   
   .footer-section ul li a {
-    color: #fff; /* Link color */
+    color: #fff; 
     text-decoration: none;
     transition: color 0.3s ease;
   }
   
   .footer-section ul li a:hover {
-    color: #ccc; /* Link color on hover */
+    color: #ccc;
   }
   
-  /* Footer Bottom */
   .footer-bottom {
     margin-top: 20px;
     text-align: center;
     font-size: 0.8rem;
   }
-  
+  .contact{
+    /* background-color: yellow; */
+    text-align: center;
+
+  }
+  .links{
+    text-align: center;
+    /* background-color: green; */
+  }

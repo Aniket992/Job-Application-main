@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../MyContext";
 import NotificationDisplay from "../Notificationdisplay/NotificationDisplay";
-
+import logo from "../../Assets/logo192x192.png";
 const Navbar = () => {
   const { user, setUser } = useContext(UserContext);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -40,6 +40,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="left">
         <div className="logo" onClick={handleLogo}>
+          <img src={logo} alt="" />
           <h1>Recruitify</h1>
         </div>
         <div className="menu">
@@ -53,11 +54,7 @@ const Navbar = () => {
               Browse Companies
             </Link>
           </li>
-          {/* <li>
-            <Link className="Link" to={"/AboutUs"}>
-              About Us
-            </Link>
-          </li> */}
+         
         </div>
       </div>
 

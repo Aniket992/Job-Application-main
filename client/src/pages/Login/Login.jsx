@@ -68,15 +68,15 @@ const Login = () => {
         <img src={sideImage} alt="" />
         <form action="">
           <div className="login-container ">
-            <h2>Welcome Back, Dude</h2>
+            <h2>Welcome Back!</h2>
 
             {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-            <button>
+            {/* <button>
               <img src={google} alt="" />
               Login with Google
-            </button>
+            </button> */}
             <hr />
-            <p> or login with email </p>
+            {/* <p> or login with email </p> */}
             <div className="form-group">
               <label>Email Address:</label>
               <input

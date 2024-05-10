@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "../../MyContext";
-import "./RecommendedJobs.css"
 import SideBar from '../../Components/SideBar/SideBar'
 import "./RecommendedJobs.css"
 import { useNavigate } from "react-router-dom";
 import NotificationDisplay from '../../Components/Notificationdisplay/NotificationDisplay';
 import { BASE_URL } from '../../apiConfig'; 
+import Footer from "../../Components/Footer/Footer";
 
 const RecommendedJobs = () => {
     const { user } = useContext(UserContext);
@@ -153,6 +153,7 @@ const RecommendedJobs = () => {
           </div>
         </div>)}
     </div>
+    <Footer/>
     </>
   )
 }

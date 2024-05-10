@@ -28,6 +28,7 @@
 
 .logos-slide img {
   background-color: white;
+  border-radius: 5px;
   height: 150px;
   width: 200px;
   margin: 0 60px;

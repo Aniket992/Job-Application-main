@@ -85,10 +85,10 @@ const Register = () => {
 
         <h2> Get More Opportunities</h2>
 
-        <button>
+        {/* <button>
           <img src={google} alt="" />
           Login with Google
-        </button>
+        </button> */}
         <div className="hr"></div>
 
         <select
