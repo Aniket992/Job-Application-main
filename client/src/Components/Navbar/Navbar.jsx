@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../MyContext";
 import NotificationDisplay from "../Notificationdisplay/NotificationDisplay";
 import logo from "../../Assets/logo192x192.png";
+import {  ToastContainer, Zoom, toast } from 'react-toastify';
+
 const Navbar = () => {
   const { user, setUser } = useContext(UserContext);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -20,8 +22,8 @@ const Navbar = () => {
   };
   
   const handleLogo = () => {
-    navigate("/Home");
-  };
+    toast.success(`Welcome ${user.user.name} . Click Categories to find jobs and get recommended jobs. `);
+    };
   
   const handleProfile = () => {
     navigate("/UserProfile");
@@ -37,6 +39,7 @@ const Navbar = () => {
   
 
   return (
+    <>
     <div className="navbar">
       <div className="left">
         <div className="logo" onClick={handleLogo}>
@@ -95,7 +98,22 @@ const Navbar = () => {
           <NotificationDisplay />
         </div>
       </div>
+      
     </div>
+    <ToastContainer
+position="top-center"
+autoClose={3000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+transition={Zoom}
+/>
+    </>
   );
 };
 

@@ -179,11 +179,11 @@ text-align: center;}
 
 .popup {
   width: 40%;
-  color: wheat;
+  color: rgb(0, 0, 0);
   max-height:90%;
   overflow: scroll;
   scrollbar-width: none;
-  background-color: rgb(86, 77, 77);
+  background-color: rgb(255, 255, 255);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); /* Box shadow for the pop-up */
@@ -194,9 +194,10 @@ text-align: center;}
 
 }
 p1{
+  font-weight: bold;
   width: 40%;
   font-size: large;
-  color: wheat;
+  color: rgb(35, 6, 115);
   align-items: center;
 }
 
