@@ -45,6 +45,7 @@ const FindCandidates = () => {
       const resumeBlob = new Blob([response.data], { type: response.headers['content-type'] });
       const resumeUrl = URL.createObjectURL(resumeBlob);
       setResumeUrl(resumeUrl);
+      console.log(resumeUrl);
     } catch (error) {
       console.error("Error fetching resume:", error);
     }

@@ -107,6 +107,7 @@ const RecommendedJobs = () => {
                   ))}
                 </div>
               </div>
+           
 
           </div>
         </div>
