@@ -143,7 +143,7 @@ const Register = () => {
           name="password"
           value={formData.password}
           onChange={handleChange}
-          placeholder=" Enter Password"
+          placeholder=" Enter Password(minimum 6 characters)"
         />
         <div className="Register-Submit">
           <button type="submit">Register</button>
